@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global-Line - Premium Logistics Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f7a;
+            --primary-dark: #0f3c4f;
+            --primary-light: #2a7f9a;
+            --accent-color: #3a9fba;
+            --success-color: #28a745;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-gray: #f0f2f5;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-cta::after {
+            display: none;
+        }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            transition: var(--transition);
+            animation: floatingPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes floatingPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .floating-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 90px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background-color: var(--bg-white);
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .about-section h1 {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            font-size: 19px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Glassmorphism Airplane Section */
+        .airplane-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 0;
+            background: linear-gradient(135deg, #1a5f7a 0%, #2a7f9a 50%, #3a9fba 100%);
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInScale 1.2s 0.3s ease-out forwards;
+        }
+
+        .airplane-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+
+        .airplane-image {
+            position: absolute;
+            width: 600px;
+            left: -600px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            top: 50%;
+            transform: translate(-50%);
+            animation: flyAcross 25s linear infinite, floatPlane 4s ease-in-out infinite;
+        }
+
+        @keyframes flyAcross {
+            0% {
+                left: -600px;
+                transform: translate(0, -50%) rotate(-1deg);
+            }
+            100% {
+                left: 100%;
+                transform: translate(0%, -50%) rotate(0deg);
+            }
+        }
+        @keyframes floatPlane {
+            0%, 100% {
+                top: 50%;
+            }
+            25% {
+                top: 48%;
+            }
+            75% {
+                top: 52%;
+            }
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+        .airplane-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            opacity: 0.8;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            will-change: transform;
+            right: 0;
+            left: auto;
+            animation: drift linear infinite;
+            transform: translateX(100%);
+        }
+
+        /* Cloud elements with shadows */
+
+        .cloud3 {
+            width: 120px;
+            height: 45px;
+            top: 35%;
+            animation: drift 30s linear infinite ;
+            animation-delay: -2s;
+            z-index: 2;
+            left: auto;
+            transform: translateX(100%);
+
+        }
+
+        .cloud3::before {
+            width: 70px;
+            height: 55px;
+            top: -25px;
+            left: 20px;
+        }
+
+        .cloud3::after {
+            width: 80px;
+            height: 45px;
+            top: -20px;
+            right: 15px;
+        }
+
+        .cloud4 {
+            width: 90px;
+            height: 38px;
+            top: 45%;
+            animation: drift 32s linear infinite;
+            z-index: 5;
+            animation-delay: -10s;
+            left: auto;
+            transform: translateX(100%);
+        }
+
+        .cloud4::before {
+            width: 55px;
+            height: 48px;
+            top: -22px;
+            left: 12px;
+        }
+
+        .cloud4::after {
+            width: 65px;
+            height: 38px;
+            top: -15px;
+            right: 12px;
+        }
+
+        .cloud5 {
+            width: 110px;
+            height: 42px;
+            bottom: 20%;
+            animation: drift 27s linear infinite ;
+            z-index: 2;
+            left: auto;
+            animation-delay: -6s;
+            transform: translateX(100%);
+
+        }
+
+        .cloud5::before {
+            width: 65px;
+            height: 52px;
+            top: -24px;
+            left: 18px;
+        }
+
+        .cloud5::after {
+            width: 70px;
+            height: 42px;
+            top: -18px;
+            right: 18px;
+        }
+
+                /* Add these new cloud styles */
+        .cloud6 {
+            width: 95px;
+            height: 32px;
+            top: 65%;
+            animation: drift 35s linear infinite;
+            z-index: 3;
+            animation-delay: -5s;
+            transform: translateX(100%);
+
+        }
+        .cloud6::before { width: 45px; height: 42px; top: -20px; left: 15px; }
+        .cloud6::after { width: 55px; height: 32px; top: -12px; right: 10px; }
+
+        .cloud7 {
+            width: 105px;
+            height: 38px;
+            bottom: 10%;
+            animation: drift 29s linear infinite;
+            z-index: 2;
+            animation-delay: -6s;
+            transform: translateX(100%);
+
+        }
+        .cloud7::before { width: 60px; height: 48px; top: -25px; left: 18px; }
+        .cloud7::after { width: 65px; height: 38px; top: -18px; right: 15px; }
+
+        .cloud8 {
+            width: 85px;
+            height: 28px;
+            top: 75%;
+            animation: drift 31s linear infinite;
+            z-index: 4;
+            animation-delay: -7s;
+            transform: translateX(100%);
+
+        }
+        .cloud8::before { width: 40px; height: 38px; top: -18px; left: 12px; }
+        .cloud8::after { width: 50px; height: 28px; top: -10px; right: 8px; }
+
+        .cloud9 {
+            width: 115px;
+            height: 42px;
+            top: 20%;
+            animation: drift 33s linear infinite;
+            z-index: 3;
+            animation-delay: -8s;
+            transform: translateX(100%);
+        }
+        .cloud9::before { width: 65px; height: 52px; top: -28px; left: 20px; }
+        .cloud9::after { width: 70px; height: 42px; top: -20px; right: 18px; }
+
+        .cloud10 {
+            width: 75px;
+            height: 25px;
+            bottom: 85%;
+            animation: drift 26s linear infinite;
+            z-index: 2;
+            animation-delay: -9s;
+            transform: translateX(100%);
+        }
+        .cloud10::before { width: 35px; height: 35px; top: -15px; left: 10px; }
+        .cloud10::after { width: 45px; height: 25px; top: -8px; right: 5px; }
+
+        .cloud11 {
+            width: 100px;
+            height: 35px;
+            top: 25%;
+            animation: drift 29s linear infinite;
+            z-index: 3;
+            animation-delay: -10s;
+            transform: translateX(100%);
+
+        }
+        .cloud11::before { width: 50px; height: 45px; top: -22px; left: 15px; }
+        .cloud11::after { width: 60px; height: 35px; top: -15px; right: 12px; }
+
+        .cloud12 {
+            width: 88px;
+            height: 30px;
+            top: 65%;
+            animation: drift 36s linear infinite;
+            z-index: 4;
+            animation-delay: -11s;
+            transform: translateX(100%);
+        }
+        .cloud12::before { width: 42px; height: 40px; top: -18px; left: 13px; }
+        .cloud12::after { width: 52px; height: 30px; top: -12px; right: 10px; }
+
+        .cloud13 {
+            width: 110px;
+            height: 40px;
+            bottom: 15%;
+            animation: drift 26s linear infinite;
+            z-index: 3;
+            animation-delay: -12s;
+            transform: translateX(100%);
+        }
+        .cloud13::before { width: 60px; height: 50px; top: -25px; left: 17px; }
+        .cloud13::after { width: 70px; height: 40px; top: -18px; right: 16px; }
+
+        .cloud14 {
+            width: 92px;
+            height: 33px;
+            top: 38%;
+            animation: drift 31s linear infinite;
+            z-index: 2;
+            animation-delay: -13s;
+            transform: translateX(100%);
+        }
+        .cloud14::before { width: 47px; height: 43px; top: -20px; left: 14px; }
+        .cloud14::after { width: 57px; height: 33px; top: -14px; right: 11px; }
+
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 15%;
+            animation: drift 25s linear infinite;
+            z-index: 4;
+            left: auto;
+            transform: translateX(100%);
+
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 35px;
+            bottom: 30%;
+            top: 25%;
+            animation: drift 25s linear infinite;
+            z-index: 2;
+            left: auto;
+            animation-delay: -1s;
+            transform: translateX(100%);
+
+        }
+
+        .cloud2::before {
+            width: 60px;
+            height: 45px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 50px;
+            height: 35px;
+            top: -10px;
+            right: 15px;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(calc(-100vw - 200px));
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 20px;
+            background-color: var(--bg-light);
+            opacity: 0;
+            animation: fadeInUp 1s 0.2s ease-out forwards;
+        }
+
+        .services-section h2 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .service-timeline {
+            background-color: var(--bg-white);
+            padding: 80px 40px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            max-width: 300px;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.8s; }
+
+        .timeline-item .number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--bg-white);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 20px;
+            position: relative;
+            z-index: 3;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item:hover .number {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .timeline-item p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Timeline connecting lines */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Service Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            transform: translateY(-100%);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 1s; }
+        .service-card:nth-child(2) { animation-delay: 1.2s; }
+        .service-card:nth-child(3) { animation-delay: 1.4s; }
+
+        .timeline-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .timeline-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Registration Form with Glassmorphism */
+        .registration-section {
+            padding: 100px 20px;
+            background-color: var(--bg-white);
+        }
+
+        .registration-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 700px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .registration-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+            position: relative;
+        }
+
+        /* Left side - Info Panel */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .info-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            opacity: 0;
+            animation: slideInLeft 1s 0.3s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+
+        .info-content h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .info-content p {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 17px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .features-list li:nth-child(1) { animation-delay: 0.6s; }
+        .features-list li:nth-child(2) { animation-delay: 0.8s; }
+        .features-list li:nth-child(3) { animation-delay: 1s; }
+
+        .features-list li svg {
+            margin-right: 16px;
+            width: 24px;
+            height: 24px;
+            stroke: #4ade80;
+            stroke-width: 3;
+        }
+
+        /* Right side - Form Panel */
+        .form-panel {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .form-content {
+            opacity: 0;
+            animation: slideInRight 1s 0.5s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        }
+
+        .form-content h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid rgba(26, 95, 122, 0.2);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease-out;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--accent-color));
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-contact {
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            margin-top: 2px;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            color: var(--success-color);
+            padding: 20px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .success-message svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--success-color);
+            stroke-width: 3;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            to {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .registration-container {
+                grid-template-columns: 1fr;
+            }
+
+            .airplane-image {
+                width: 400px;
+            }
+
+            .info-panel {
+                padding: 60px 40px;
+                min-height: auto;
+            }
+
+            .form-panel {
+                padding: 60px 40px;
+            }
+
+            .info-content h2 {
+                font-size: 36px;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .airplane-image {
+                width: 300px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            main {
+                margin-top: 140px;
+            }
+
+            .about-section h1 {
+                font-size: 36px;
+            }
+
+            .services-section h2 {
+                font-size: 32px;
+            }
+
+            .timeline-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline-item {
+                max-width: 100%;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .registration-wrapper {
+                margin: 40px auto;
+                border-radius: var(--radius-lg);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-item {
+                justify-content: center;
+            }
+
+            @media (max-width: 480px) {
+                .airplane-image {
+                    width: 250px;
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Global-Line Logo">
+                <span class="logo-text">Global-Line</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#legal">Legal</a></li>
+                    <li><a href="#request" class="header-cta">Request Free Consultation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating CTA -->
+    <a href="#request" class="floating-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+        Get Started
+    </a>
+
+    <main>
+        <section id="about" class="about-section">
+            <h1>Premium Global Logistics Solutions</h1>
+            <p>Global-Line delivers streamlined air freight and customs clearance solutions worldwide. Based in Italy, with hubs in Gros Rimini and Centergross Bologna, we ensure rapid cargo consolidation and dispatch. Our tailored approach guarantees cost-effective shipping for all cargo types, backed by seamless handling of international certifications and door-to-warehouse pickup.</p>
+        </section>
+
+        <!-- Glassmorphism Airplane Section -->
+        <section class="airplane-section">
+            <div class="airplane-container">
+
+                <!-- Clouds -->
+                <div class="cloud cloud1"></div>
+                <div class="cloud cloud2"></div>
+                <div class="cloud cloud3"></div>
+                <div class="cloud cloud4"></div>
+                <div class="cloud cloud5"></div>
+                <div class="cloud cloud6"></div>
+                <div class="cloud cloud7"></div>
+                <div class="cloud cloud8"></div>
+                <div class="cloud cloud9"></div>
+                <div class="cloud cloud10"></div>
+                <div class="cloud cloud11"></div>
+                <div class="cloud cloud12"></div>
+                <div class="cloud cloud13"></div>
+                <div class="cloud cloud14"></div>
+
+
+                <img src="images/PLANE.png" alt="Global-Line Airplane" class="airplane-image">
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2>Our Services</h2>
+
+            <div class="service-timeline">
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <a href="manufacturer.html" class="timeline-link">
+                            <div class="number">1</div>
+                            <h3>Sourcing</h3>
+                            <p>We ensure your goods are shipment-ready, minimizing risks before they even leave the EU.</p>
+                        </a>
+                    </div>
+                    <div class="timeline-item">
+                        <a href="logistics.html" class="timeline-link">
+                            <div class="number">2</div>
+                            <h3>Logistics</h3>
+                            <p>We navigate regulations, optimize routes, and keep you informed—so you never lose sleep over delays.</p>
+                        </a>
+                    </div>
+                    <div class="timeline-item">
+                        <a href="delivery.html" class="timeline-link">
+                            <div class="number">3</div>
+                            <h3>Delivery</h3>
+                            <p>Your cargo doesn't stop at the airport—we guarantee it reaches its destination safely and on time.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+                        </svg>
+                    </div>
+                    <h3>Air Transport</h3>
+                    <p>Premium air freight services with complete goods movement organization from Italy, Europe, Switzerland, USA, and Japan. Home delivery in Kazakhstan and neighboring countries.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Tailored Service</h3>
+                    <p>Pre-processing, error checks, and submission for compliance. Need weekend delivery? Temperature-controlled transport? We adapt to your requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>360° Service</h3>
+                    <p>Complete logistics solutions including customs clearance, documentation, warehousing, and final delivery. Professional support available 24/7.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="request" class="registration-section">
+            <div class="registration-wrapper">
+                <div class="registration-container">
+                    <div class="info-panel">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="info-content">
+                            <h2>Start Your Global Logistics Journey</h2>
+                            <p>Join hundreds of businesses who trust Global-Line for their international shipping needs.</p>
+                            <ul class="features-list">
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    Bespoke solutions
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    Certified customs clearance
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    24/7 professional support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-panel">
+                        <div class="form-content">
+                            <h2>Request Free Consultation</h2>
+                            <form id="consultationForm">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="company">Company Name (Optional)</label>
+                                    <input type="text" id="company" name="company">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="service">Service Required</label>
+                                    <select id="service" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="air-transport">Air Transport</option>
+                                        <option value="logistics">Full Logistics</option>
+                                        <option value="customs">Customs Clearance</option>
+                                        <option value="warehousing">Warehousing</option>
+                                        <option value="consultation">General Consultation</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Please describe your logistics needs..."></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn">Request Free Consultation</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div class="contact-info">
+                            Via Coriano, 58 Blocco 92/G<br>
+                            Gros Rimini 47924 RIMINI
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                        <div class="contact-info">
+                            <a href="mailto:cargo@global-line.it">cargo@global-line.it</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            <path d="M12 8v8M8 12h8"/>
+                        </svg>
+                        <div class="contact-info">
+                            P.IVA 04736580400
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Global-Line. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.timeline-item, .service-card').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Form submission handling with enhanced animation
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Enhanced animation
+            const button = this.querySelector('.submit-btn');
+            const originalText = button.textContent;
+
+            // Add loading animation
+            button.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span> Processing...';
+            button.disabled = true;
+            button.style.transform = 'scale(0.98)';
+
+            // Simulate form submission
+            setTimeout(() => {
+                button.innerHTML = '✓ Success!';
+                button.style.background = 'linear-gradient(135deg, #28a745 0%, #34ce57 100%)';
+                button.style.transform = 'scale(1)';
+
+                // Add success ripple effect
+                const ripple = document.createElement('span');
+                ripple.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.5);
+                    transform: translate(-50%, -50%);
+                    animation: ripple 0.6s ease-out;
+                `;
+                button.style.position = 'relative';
+                button.appendChild(ripple);
+
+                // Reset form with fade effect
+                setTimeout(() => {
+                    this.style.opacity = '0';
+                    setTimeout(() => {
+                        this.reset();
+                        this.style.opacity = '1';
+                        button.textContent = originalText;
+                        button.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%)';
+                        button.disabled = false;
+
+                        // Show success message
+                        const successMsg = document.createElement('div');
+                        successMsg.className = 'success-message';
+                        successMsg.innerHTML = `
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Thank you! We'll contact you within 24 hours.
+                        `;
+                        document.body.appendChild(successMsg);
+
+                        setTimeout(() => {
+                            successMsg.style.animation = 'slideOut 0.5s ease-out forwards';
+                            setTimeout(() => successMsg.remove(), 500);
+                        }, 4000);
+                    }, 300);
+                }, 1500);
+            }, 1500);
+        });
+
+        // Add CSS animations dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+            @keyframes ripple {
+                to {
+                    width: 400px;
+                    height: 400px;
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for floating shapes
+        let ticking = false;
+        function updateParallax(e) {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const shapes = document.querySelectorAll('.shape');
+                    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+                    shapes.forEach((shape, index) => {
+                        const speed = (index + 1) * 15;
+                        shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        document.addEventListener('mousemove', updateParallax);
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+
+
+</body>
+</html>

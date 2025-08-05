@@ -184,515 +184,6 @@
             margin-top: 90px;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 20px;
-            background-color: var(--bg-white);
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-        }
-
-        .about-section h1 {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 24px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-gray);
-            font-size: 19px;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .service-card-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .service-card h3 {
-            color: var(--text-dark);
-            margin-bottom: 16px;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 15px;
-        }
-
-
-
-        @keyframes rotate {
-            to { transform: rotate(360deg); }
-        }
-
-
-
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-        }
-
-        .info-content h2 {
-            font-size: 48px;
-            margin-bottom: 24px;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -1px;
-        }
-
-        .info-content p {
-            font-size: 19px;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .features-list {
-            list-style: none;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 17px;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .features-list li:nth-child(1) { animation-delay: 0.6s; }
-        .features-list li:nth-child(2) { animation-delay: 0.8s; }
-        .features-list li:nth-child(3) { animation-delay: 1s; }
-
-        .features-list li svg {
-            margin-right: 16px;
-            width: 24px;
-            height: 24px;
-            stroke: #4ade80;
-            stroke-width: 3;
-        }
-
-
-
-        @keyframes slideInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-        }
-
-        .form-content h2 {
-            font-size: 36px;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.3px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid rgba(26, 95, 122, 0.2);
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            transition: var(--transition);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 80px 20px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--accent-color));
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-section h3 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .footer-contact {
-            line-height: 1.8;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .contact-item svg {
-            width: 24px;
-            height: 24px;
-            stroke: white;
-            stroke-width: 2;
-            margin-top: 2px;
-        }
-
-        .contact-info {
-            text-align: left;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 50px auto 0;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 15px;
-        }
-
-
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            to {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .registration-container {
-                grid-template-columns: 1fr;
-            }
-
-            .airplane-image {
-                width: 400px;
-            }
-
-            .info-panel {
-                padding: 60px 40px;
-                min-height: auto;
-            }
-
-            .form-panel {
-                padding: 60px 40px;
-            }
-
-            .info-content h2 {
-                font-size: 36px;
-            }
-
-            .floating-cta {
-                bottom: 20px;
-                right: 20px;
-                padding: 14px 24px;
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .airplane-image {
-                width: 300px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            main {
-                margin-top: 140px;
-            }
-
-            .about-section h1 {
-                font-size: 36px;
-            }
-
-            .services-section h2 {
-                font-size: 32px;
-            }
-
-
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-item {
-                justify-content: center;
-            }
-
-            @media (max-width: 480px) {
-                .airplane-image {
-                    width: 250px;
-                }
-            }
-
-        }
-
- .service-hero {
-            padding: 120px 20px 80px;
-            min-height: calc(100vh - 300px);
-            display: flex;
-            align-items: center;
-        }
-
-        .service-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .service-content {
-            opacity: 0;
-            animation: slideInLeft 1s ease-out forwards;
-        }
-
-        .service-content h1 {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .service-content p {
-            color: var(--text-gray);
-            font-size: 19px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-top: 40px;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 17px;
-            color: var(--text-dark);
-        }
-
-        .service-features li svg {
-            margin-right: 16px;
-            width: 24px;
-            height: 24px;
-            stroke: var(--primary-color);
-            stroke-width: 3;
-            flex-shrink: 0;
-        }
-
-        .service-image-container {
-            position: relative;
-            opacity: 0;
-            animation: slideInRight 1s 0.3s ease-out forwards;
-        }
-
-        .service-image-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 150%; /* 2:3 aspect ratio */
-            background: var(--bg-gray);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Optional: Add a decorative element */
-        .service-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .service-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .service-image-wrapper {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .service-hero {
-                padding: 100px 20px 60px;
-            }
-
-            .service-content h1 {
-                font-size: 36px;
-            }
-
-            .service-content p {
-                font-size: 17px;
-            }
-        }
-
         .service-hero {
             padding: 120px 20px 80px;
             min-height: calc(100vh - 300px);
@@ -800,50 +291,55 @@
             animation: slideInRight 1s 0.3s ease-out forwards;
         }
 
+        /* Animation Container Styles */
         .service-image-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 150%; /* 2:3 aspect ratio */
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            background: white;
             border-radius: var(--radius-xl);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
 
-        .service-image {
+        .animation-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
         }
 
-        /* Decorative elements */
-        .service-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: -1;
+        /* Main SVG */
+        .main-svg {
+            width: 100%;
+            height: 100%;
         }
 
-        .service-image-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: -30px;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: -1;
+        /* Hide all sheets and ink trails by default */
+        .sheet {
+            opacity: 0;
+            transform: translateX(-400px);
+        }
+
+        .ink-trail {
+            stroke: #4CAF50;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            opacity: 0;
+        }
+
+        /* Pen stays static, we'll animate it with JS */
+        .pen {
+            transform: translate(230px, 180px) rotate(-90deg);
+            transform-origin: -13px 5px;
+            transition: transform 0.3s ease-in-out;
         }
 
         @keyframes slideInLeft {
@@ -879,6 +375,86 @@
             }
         }
 
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--accent-color));
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-contact {
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            margin-top: 2px;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             .service-container {
@@ -890,9 +466,30 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 24px;
+                font-size: 15px;
+            }
         }
 
         @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            main {
+                margin-top: 140px;
+            }
+
             .service-hero {
                 padding: 100px 20px 60px;
             }
@@ -913,11 +510,15 @@
                 margin-left: 0;
                 margin-top: 12px;
             }
+
+            .contact-item {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header - EXACTLY as in index.html -->
+    <!-- Header -->
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
@@ -962,7 +563,6 @@
                                 <ul>
                                     <li>Understanding of various business shipping requirements and peak seasons</li>
                                     <li>Regulatory knowledge for restricted or controlled products</li>
-
                                 </ul>
                             </div>
                         </div>
@@ -996,26 +596,365 @@
                     </div>
                 </div>
 
-                <!-- Right side - Image/Animation space -->
+                <!-- Right side - Animation container -->
                 <div class="service-image-container">
                     <div class="service-image-wrapper">
-                        <!-- Add your manufacturer image here -->
-                        <img src="images/manufacturer-service.jpg" alt="Manufacturing Services" class="service-image">
+                        <div class="animation-container">
+                            <svg class="main-svg" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Static clipboard elements -->
+                                <g id="clipboard-static">
+                                    <!-- Board -->
+                                    <rect x="100" y="100" width="300" height="400" rx="10" fill="#8B4513" stroke="#654321" stroke-width="4"/>
 
-                        <!-- Or you can add a placeholder div with icon/animation -->
-                        <!-- <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                            <svg style="width: 120px; height: 120px; stroke: var(--primary-color); opacity: 0.2;" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                                <path d="M9 12l2 2 4-4"/>
+                                    <!-- Wood texture -->
+                                    <line x1="120" y1="120" x2="120" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="160" y1="120" x2="160" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="200" y1="120" x2="200" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="240" y1="120" x2="240" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="280" y1="120" x2="280" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="320" y1="120" x2="320" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+                                    <line x1="360" y1="120" x2="360" y2="480" stroke="#7a3f10" stroke-width="1" opacity="0.3"/>
+
+                                    <!-- Metal clip -->
+                                    <rect x="200" y="80" width="100" height="35" rx="10" fill="#c0c0c0" stroke="#999" stroke-width="2"/>
+                                    <circle cx="250" cy="97" r="3" fill="#666"/>
+                                </g>
+
+                                <!-- Clipping mask for paper animation -->
+                                <defs>
+                                    <clipPath id="paperClip">
+                                        <rect x="100" y="100" width="300" height="400" rx="10"/>
+                                    </clipPath>
+                                </defs>
+
+                                <!-- Animated sheets container -->
+                                <g clip-path="url(#paperClip)">
+                                    <g class="sheet-group">
+                                        <!-- Sheet 1 -->
+                                        <g class="sheet sheet-1" data-sheet="1">
+                                            <!-- Paper -->
+                                            <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
+
+                                            <!-- Checkboxes -->
+                                            <rect x="160" y="190" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="196" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="250" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="256" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="310" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="316" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="370" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="376" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <!-- Ink trails -->
+                                            <path class="ink-trail ink-1" d="M 165 199 L 169 203 L 175 195" opacity="0"/>
+                                            <path class="ink-trail ink-2" d="M 165 259 L 169 263 L 175 255" opacity="0"/>
+                                            <path class="ink-trail ink-3" d="M 165 319 L 169 323 L 175 315" opacity="0"/>
+                                            <path class="ink-trail ink-4" d="M 165 379 L 169 383 L 175 375" opacity="0"/>
+                                        </g>
+
+                                        <!-- Sheet 2 -->
+                                        <g class="sheet sheet-2" data-sheet="2" transform="translate(-400, 0)">
+                                            <!-- Paper -->
+                                            <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
+
+                                            <!-- Checkboxes -->
+                                            <rect x="160" y="190" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="196" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="250" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="256" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="310" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="316" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="370" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="376" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <!-- Ink trails -->
+                                            <path class="ink-trail ink-1" d="M 165 199 L 169 203 L 175 195" opacity="0"/>
+                                            <path class="ink-trail ink-2" d="M 165 259 L 169 263 L 175 255" opacity="0"/>
+                                            <path class="ink-trail ink-3" d="M 165 319 L 169 323 L 175 315" opacity="0"/>
+                                            <path class="ink-trail ink-4" d="M 165 379 L 169 383 L 175 375" opacity="0"/>
+                                        </g>
+
+                                        <!-- Sheet 3 -->
+                                        <g class="sheet sheet-3" data-sheet="3" transform="translate(-800, 0)">
+                                            <!-- Paper -->
+                                            <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
+
+                                            <!-- Checkboxes -->
+                                            <rect x="160" y="190" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="196" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="250" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="256" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="310" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="316" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="370" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="376" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <!-- Ink trails -->
+                                            <path class="ink-trail ink-1" d="M 165 199 L 169 203 L 175 195" opacity="0"/>
+                                            <path class="ink-trail ink-2" d="M 165 259 L 169 263 L 175 255" opacity="0"/>
+                                            <path class="ink-trail ink-3" d="M 165 319 L 169 323 L 175 315" opacity="0"/>
+                                            <path class="ink-trail ink-4" d="M 165 379 L 169 383 L 175 375" opacity="0"/>
+                                        </g>
+                                    </g>
+                                </g>
+
+                                <!-- Pen (drawn on top) -->
+                                <g class="pen">
+                                    <!-- Pen body -->
+                                    <rect x="0" y="0" width="100" height="10" rx="5" fill="#1a1a1a"/>
+
+                                    <!-- Gold ring -->
+                                    <rect x="65" y="0" width="15" height="10" rx="1" fill="#1a5f7a"/>
+
+                                    <!-- Silver clip -->
+                                    <rect x="80" y="0" width="10" height="10" rx="1" fill="#ffd700"/>
+                                    <rect x="82" y="-2" width="6" height="14" rx="3" fill="#1a5f7a"/>
+
+                                    <!-- Pen tip -->
+                                    <polygon points="0,5 -10,0 -10,10" fill="#333"/>
+                                    <polygon points="-10,5 -13,3 -13,7" fill="#666"/>
+
+                                    <!-- Green ink tip -->
+                                    <circle cx="-13" cy="5" r="1.5" fill="#4CAF50"/>
+
+                                    <!-- Ink drip effect -->
+                                    <circle cx="-13" cy="5" r="2.5" fill="#4CAF50" opacity="0.3">
+                                        <animate attributeName="r" values="2.5;3.5;2.5" dur="0.5s" repeatCount="indefinite"/>
+                                        <animate attributeName="opacity" values="0.3;0.1;0.3" dur="0.5s" repeatCount="indefinite"/>
+                                    </circle>
+                                </g>
+
+                                <!-- Filter -->
+                                <defs>
+                                    <filter id="shadow">
+                                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+                                    </filter>
+                                </defs>
                             </svg>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer - EXACTLY as in index.html -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div class="contact-info">
+                            Via Coriano, 58 Blocco 92/G<br>
+                            Gros Rimini 47924 RIMINI
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                        <div class="contact-info">
+                            <a href="mailto:cargo@global-line.it">cargo@global-line.it</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            <path d="M12 8v8M8 12h8"/>
+                        </svg>
+                        <div class="contact-info">
+                            P.IVA 04736580400
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Global-Line. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    window.location.href = 'index.html' + targetId;
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Animation control
+        document.addEventListener('DOMContentLoaded', function() {
+            const sheets = document.querySelectorAll('.sheet');
+            const pen = document.querySelector('.pen');
+            let currentSheetIndex = 0;
+
+            // Pen positions for checkmarks
+            const penPositions = {
+                start: 'translate(230px, 180px) rotate(-90deg)',
+                check1: {
+                    move: 'translate(178px, 192px) rotate(-45deg)',
+                    draw1: 'translate(178px, 199px) rotate(-45deg)',
+                    draw2: 'translate(182px, 203px) rotate(-50deg)',
+                    draw3: 'translate(188px, 195px) rotate(-35deg)',
+                    end: 'translate(190px, 192px) rotate(-45deg)'
+                },
+                check2: {
+                    move: 'translate(178px, 252px) rotate(-45deg)',
+                    draw1: 'translate(178px, 259px) rotate(-45deg)',
+                    draw2: 'translate(182px, 263px) rotate(-50deg)',
+                    draw3: 'translate(188px, 255px) rotate(-35deg)',
+                    end: 'translate(190px, 252px) rotate(-45deg)'
+                },
+                check3: {
+                    move: 'translate(178px, 312px) rotate(-45deg)',
+                    draw1: 'translate(178px, 319px) rotate(-45deg)',
+                    draw2: 'translate(182px, 323px) rotate(-50deg)',
+                    draw3: 'translate(188px, 315px) rotate(-35deg)',
+                    end: 'translate(190px, 312px) rotate(-45deg)'
+                },
+                check4: {
+                    move: 'translate(178px, 372px) rotate(-45deg)',
+                    draw1: 'translate(178px, 379px) rotate(-45deg)',
+                    draw2: 'translate(182px, 383px) rotate(-50deg)',
+                    draw3: 'translate(188px, 375px) rotate(-35deg)',
+                    end: 'translate(190px, 372px) rotate(-45deg)'
+                },
+                away: 'translate(230px, 330px) rotate(-90deg)'
+            };
+
+            function showSheet(index) {
+                sheets.forEach((sheet, i) => {
+                    if (i === index) {
+                        sheet.style.transition = 'all 0.8s ease-in-out';
+                        sheet.style.opacity = '1';
+                        sheet.style.transform = 'translateX(0)';
+                    } else {
+                        sheet.style.opacity = '0';
+                        sheet.style.transform = 'translateX(-400px)';
+                    }
+                });
+            }
+
+            function hideSheet(index) {
+                const sheet = sheets[index];
+                sheet.style.transition = 'all 0.8s ease-in-out';
+                sheet.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    sheet.style.opacity = '0';
+                    sheet.style.transition = 'none';
+                    sheet.style.transform = 'translateX(-400px)';
+                    // Clear all checkmarks
+                    const inkTrails = sheet.querySelectorAll('.ink-trail');
+                    inkTrails.forEach(trail => {
+                        trail.style.opacity = '0';
+                    });
+                }, 800);
+            }
+
+            function drawCheckmark(sheet, checkNumber, positions) {
+                const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
+
+                // Move to checkbox
+                pen.style.transform = positions.move;
+
+                setTimeout(() => {
+                    // Draw the checkmark
+                    pen.style.transform = positions.draw1;
+                    setTimeout(() => {
+                        pen.style.transform = positions.draw2;
+                        setTimeout(() => {
+                            pen.style.transform = positions.draw3;
+                            // Show ink trail
+                            inkTrail.style.transition = 'opacity 0.3s';
+                            inkTrail.style.opacity = '1';
+                            setTimeout(() => {
+                                pen.style.transform = positions.end;
+                            }, 100);
+                        }, 100);
+                    }, 100);
+                }, 300);
+            }
+
+            function runCycle() {
+                const currentSheet = sheets[currentSheetIndex];
+
+                // Show current sheet
+                showSheet(currentSheetIndex);
+
+                // Reset pen position
+                pen.style.transform = penPositions.start;
+
+                // Draw checkmarks with timing
+                setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
+                setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
+                setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
+                setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
+
+                // Move pen away and slide sheet
+                setTimeout(() => {
+                    pen.style.transform = penPositions.away;
+                    setTimeout(() => {
+                        hideSheet(currentSheetIndex);
+                        pen.style.transform = penPositions.start;
+
+                        // Move to next sheet
+                        currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
+
+                        // Start next cycle
+                        setTimeout(runCycle, 1000);
+                    }, 500);
+                }, 5000);
+            }
+
+            // Start animation
+            runCycle();
+        });
+    </script>
+</body>
+</html>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">

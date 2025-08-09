@@ -1362,47 +1362,6 @@
 
         // Animation control
         // Animation control
-document.addEventListener('DOMContentLoaded', function() {
-    const sheets = document.querySelectorAll('.sheet');
-    const pen = document.querySelector('.pen');
-    let currentSheetIndex = 0;
-
-    // Check if mobile
-    const isMobile = window.innerWidth <= 768;
-
-    // Pen positions for checkmarks (desktop only)
-    const penPositions = {
-        start: 'translate(230px, 180px) rotate(-90deg)',
-        check1: {
-            move: 'translate(178px, 192px) rotate(-45deg)',
-            draw1: 'translate(178px, 199px) rotate(-45deg)',
-            draw2: 'translate(182px, 203px) rotate(-50deg)',
-            draw3: 'translate(188px, 195px) rotate(-35deg)',
-            end: 'translate(190px, 192px) rotate(-45deg)'
-        },
-        check2: {
-            move: 'translate(178px, 252px) rotate(-45deg)',
-            draw1: 'translate(178px, 259px) rotate(-45deg)',
-            draw2: 'translate(182px, 263px) rotate(-50deg)',
-            draw3: 'translate(188px, 255px) rotate(-35deg)',
-            end: 'translate(190px, 252px) rotate(-45deg)'
-        },
-        check3: {
-            move: 'translate(178px, 312px) rotate(-45deg)',
-            draw1: 'translate(178px, 319px) rotate(-45deg)',
-            draw2: 'translate(182px, 323px) rotate(-50deg)',
-            draw3: 'translate(188px, 315px) rotate(-35deg)',
-            end: 'translate(190px, 312px) rotate(-45deg)'
-        },
-        check4: {
-            move: 'translate(178px, 372px) rotate(-45deg)',
-            draw1: 'translate(178px, 379px) rotate(-45deg)',
-            draw2: 'translate(182px, 383px) rotate(-50deg)',
-            draw3: 'translate(188px, 375px) rotate(-35deg)',
-            end: 'translate(190px, 372px) rotate(-45deg)'
-        },
-        away: 'translate(230px, 330px) rotate(-90deg)'
-    };
 
     function showSheet(index) {
         sheets.forEach((sheet, i) => {
@@ -1791,4 +1750,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-

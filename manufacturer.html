@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global-Line - Sourcing Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">    <title>Global-Line - Sourcing Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -177,6 +176,147 @@
         .floating-cta svg {
             width: 20px;
             height: 20px;
+        }
+
+        /* Mobile Factory Animation Centering */
+        /* Mobile Factory Animation Centering */
+        @media (max-width: 768px) {
+            /* Fix container spacing */
+            .service-hero {
+                padding: 80px 15px 60px !important;
+            }
+
+            .service-container {
+                padding: 0 10px !important;
+            }
+
+            /* Fix animation container */
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 120% !important;
+                margin: 0 auto !important;
+                position: relative !important;
+            }
+
+            .factory-modern {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 20px !important;
+                box-sizing: border-box !important;
+            }
+
+            .factory-icon {
+                width: 140px !important;
+                height: 140px !important;
+                margin-bottom: 25px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .factory-icon svg {
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            .production-line {
+                width: 180px !important;
+                height: 3px !important;
+                margin: 0 auto 25px !important;
+            }
+
+            .data-points {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 15px !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+            }
+
+            .data-point {
+                flex: 1 !important;
+                min-width: 0 !important;
+                max-width: 90px !important;
+                text-align: center !important;
+            }
+
+            .data-value {
+                font-size: 22px !important;
+                display: block !important;
+                margin-bottom: 4px !important;
+            }
+
+            .data-label {
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+                display: block !important;
+            }
+
+            /* Fix text spacing similar to logistics */
+            .service-content {
+                padding: 0 !important;
+            }
+
+            .service-content h1 {
+                font-size: 32px !important;
+                padding: 0 5px !important;
+            }
+
+            .service-content .lead-text {
+                font-size: 16px !important;
+                padding: 0 5px !important;
+            }
+
+            .service-item-content {
+                margin-left: 34px !important;
+                padding-right: 5px !important;
+            }
+        }
+
+        /* Small devices */
+        @media (max-width: 480px) {
+            .factory-icon {
+                width: 120px !important;
+                height: 120px !important;
+            }
+
+            .production-line {
+                width: 150px !important;
+            }
+
+            .data-points {
+                gap: 10px !important;
+            }
+
+            .data-value {
+                font-size: 20px !important;
+            }
+
+            .data-label {
+                font-size: 9px !important;
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .factory-icon {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .data-value {
+                font-size: 18px !important;
+            }
         }
 
         /* Main Content */
@@ -500,51 +640,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .airplane-image {
-                width: 300px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            main {
-                margin-top: 140px;
-            }
-
-            .about-section h1 {
-                font-size: 36px;
-            }
-
-            .services-section h2 {
-                font-size: 32px;
-            }
-
-
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-item {
-                justify-content: center;
-            }
-
-            @media (max-width: 480px) {
-                .airplane-image {
-                    width: 250px;
-                }
-            }
-
-        }
 
  .service-hero {
             padding: 120px 20px 80px;
@@ -679,8 +774,8 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .service-hero {
+        <@media (max-width: 768px) {
+>            .service-hero {
                 padding: 100px 20px 60px;
             }
 
@@ -990,10 +1085,722 @@
                 margin-top: 12px;
             }
         }
-    </style>
+        /* Enhanced Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Navigation Overlay */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-content {
+                position: relative;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: white;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 16px;
+                border-radius: var(--radius-sm);
+                transition: background-color 0.2s ease;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-light);
+            }
+
+            nav a::after {
+                display: none !important;
+            }
+
+            .header-cta {
+                margin-top: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+                display: block !important;
+            }
+
+            /* Mobile overlay backdrop */
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+
+            .mobile-overlay.active {
+                display: block;
+            }
+        }
+
+        /* Improved Mobile Typography */
+        @media (max-width: 480px) {
+            .about-section h1 {
+                font-size: 28px !important;
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+
+            .about-section p {
+                font-size: 16px !important;
+                padding: 0 10px;
+            }
+
+            .services-section h2 {
+                font-size: 28px !important;
+                margin-bottom: 30px;
+            }
+
+            .service-card h3 {
+                font-size: 20px !important;
+            }
+
+            .service-card p {
+                font-size: 14px !important;
+            }
+
+            .info-content h2 {
+                font-size: 28px !important;
+            }
+
+            .info-content p {
+                font-size: 16px !important;
+            }
+
+            .form-content h2 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .service-content h1 {
+                font-size: 28px !important;
+            }
+
+            .service-content .lead-text {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Mobile-Optimized Airplane Section */
+        @media (max-width: 768px) {
+            .airplane-section {
+                height: 300px !important;
+            }
+
+            .airplane-image {
+                width: 250px !important;
+                animation: none !important;
+                position: relative !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: 50% !important;
+                margin-top: -50px;
+            }
+
+            /* Reduce number of clouds on mobile */
+            .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
+            .cloud11, .cloud12, .cloud13, .cloud14 {
+                display: none !important;
+            }
+
+            .cloud {
+                animation-duration: 40s !important;
+            }
+        }
+
+        /* Mobile Timeline - Enhanced */
+        @media (max-width: 768px) {
+            .service-timeline {
+                padding: 40px 20px !important;
+            }
+
+            .timeline-container {
+                flex-direction: column !important;
+                gap: 30px;
+                position: relative;
+            }
+
+            .timeline-container::before {
+                content: '';
+                position: absolute;
+                left: 39px;
+                top: 30px;
+                bottom: 30px;
+                width: 2px;
+                background: var(--primary-color);
+                opacity: 0.2;
+                z-index: 0;
+            }
+
+            .timeline-item {
+                max-width: 100% !important;
+                padding: 20px !important;
+                background: white;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                position: relative;
+                margin-left: 20px;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none !important;
+            }
+
+            .timeline-item .number {
+                position: absolute;
+                left: -40px;
+                top: 20px;
+                z-index: 2;
+                background: white !important;
+            }
+        }
+
+        /* Mobile Service Cards */
+        @media (max-width: 480px) {
+            .service-cards {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .service-card {
+                padding: 30px 20px !important;
+            }
+        }
+
+        /* Mobile Registration Form */
+        @media (max-width: 768px) {
+            .registration-wrapper {
+                margin: 20px !important;
+                border-radius: var(--radius-md);
+            }
+
+            .registration-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .info-panel {
+                padding: 40px 20px !important;
+                min-height: auto;
+            }
+
+            .form-panel {
+                padding: 40px 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+
+            .submit-btn {
+                padding: 18px !important;
+                font-size: 16px !important;
+            }
+
+            .features-list li {
+                font-size: 15px !important;
+            }
+
+            .shape-1, .shape-2 {
+                display: none;
+            }
+        }
+
+        /* Mobile Floating CTA */
+        @media (max-width: 480px) {
+            .floating-cta {
+                bottom: 15px !important;
+                right: 15px !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+            }
+
+            .floating-cta svg {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        /* Mobile Footer */
+        @media (max-width: 768px) {
+            footer {
+                padding: 50px 20px 30px !important;
+            }
+
+            .footer-section h3 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .contact-item {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-info {
+                text-align: center !important;
+            }
+
+            .footer-bottom {
+                margin-top: 30px;
+                padding-top: 30px;
+                font-size: 14px !important;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (max-width: 768px) {
+            /* Larger touch targets */
+            button,
+            .header-cta,
+            .floating-cta,
+            .submit-btn,
+            nav a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Better spacing for form elements */
+            .form-group {
+                margin-bottom: 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px !important;
+                min-height: 44px;
+            }
+        }
+
+        /* Landscape mobile adjustments */
+        @media (max-width: 812px) and (orientation: landscape) {
+            .service-hero {
+                min-height: auto !important;
+                padding: 60px 20px 40px !important;
+            }
+
+            .airplane-section {
+                height: 250px !important;
+            }
+
+            .registration-wrapper {
+                min-height: auto !important;
+            }
+
+            main {
+                margin-top: 70px !important;
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .logo-text {
+                font-size: 24px !important;
+            }
+
+            .logo img {
+                height: 40px !important;
+            }
+
+            .about-section h1 {
+                font-size: 24px !important;
+            }
+
+            .service-content h1 {
+                font-size: 24px !important;
+            }
+
+            .floating-cta {
+                padding: 10px 16px !important;
+                font-size: 13px !important;
+            }
+        }
+
+        /* Service pages specific mobile styles */
+        @media (max-width: 768px) {
+            .service-container {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 100% !important;
+            }
+
+            .service-item h3 {
+                font-size: 18px !important;
+            }
+
+            .service-item-content {
+                margin-left: 0 !important;
+                margin-top: 10px;
+            }
+
+            .service-number {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 14px !important;
+            }
+
+            /* Three.js globe container for mobile */
+            .globe-container {
+                height: 300px !important;
+            }
+
+            .stats-row {
+                flex-wrap: wrap !important;
+                gap: 15px !important;
+            }
+
+            .stat-number {
+                font-size: 22px !important;
+            }
+
+            .stat-label {
+                font-size: 10px !important;
+            }
+        }
+
+
+/* Fix manufacturer.html animation container */
+@media (max-width: 768px) {
+    .service-image-wrapper {
+        max-width: 100% !important;
+        padding-bottom: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .factory-modern {
+        padding: 20px !important;
+    }
+
+    .factory-icon {
+        width: 120px !important;
+        height: 120px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .production-line {
+        width: 150px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .data-points {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
+        justify-content: center !important;
+    }
+
+    .data-point {
+        min-width: 70px !important;
+    }
+
+    .data-value {
+        font-size: 20px !important;
+    }
+
+    .data-label {
+        font-size: 10px !important;
+    }
+}
+
+
+/* Better text readability on very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px !important;
+    }
+
+    .about-section h1 {
+        font-size: 26px !important;
+        padding: 0 10px !important;
+    }
+
+    .about-section p {
+        font-size: 15px !important;
+        padding: 0 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    .service-content h1 {
+        font-size: 28px !important;
+    }
+
+    .service-content .lead-text {
+        font-size: 15px !important;
+    }
+
+    .service-item h3 {
+        font-size: 17px !important;
+    }
+
+    .service-item ul li {
+        font-size: 13px !important;
+    }
+
+    /* Adjust timeline for small screens */
+    .timeline-item {
+        padding: 15px !important;
+        margin-left: 40px !important;
+    }
+
+    .timeline-item .number {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 16px !important;
+        left: -35px !important;
+    }
+
+    .timeline-item h3 {
+        font-size: 16px !important;
+    }
+
+    .timeline-item p {
+        font-size: 13px !important;
+    }
+}
+
+/* Fix service cards on mobile */
+@media (max-width: 768px) {
+    .service-cards {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+    }
+
+    .service-card {
+        padding: 25px 20px !important;
+    }
+
+    .service-card h3 {
+        font-size: 20px !important;
+    }
+
+    .service-card p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+    main {
+        margin-top: 80px !important;
+    }
+
+    section {
+        padding: 40px 0 !important;
+    }
+
+    .service-hero {
+        padding: 60px 15px 40px !important;
+        min-height: auto !important;
+    }
+}
+
+/* Landscape mobile specific fixes */
+@media (max-width: 812px) and (orientation: landscape) {
+    .airplane-section {
+        height: 200px !important;
+    }
+
+    .airplane-image {
+        width: 150px !important;
+    }
+
+    .service-hero {
+        padding: 40px 15px 30px !important;
+    }
+
+    .service-content h1 {
+        font-size: 28px !important;
+    }
+
+    main {
+        margin-top: 70px !important;
+    }
+}
+
+    /* Fix floating CTA on small screens */
+    @media (max-width: 480px) {
+        .floating-cta {
+            bottom: 10px !important;
+            right: 10px !important;
+            padding: 10px 16px !important;
+            font-size: 13px !important;
+        }
+
+        .floating-cta svg {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    }
+
+    /* Ensure mobile menu works properly */
+    @media (max-width: 768px) {
+        .header-content {
+            padding: 15px !important;
+            position: relative !important;
+        }
+
+        .logo-text {
+            font-size: 24px !important;
+        }
+
+        .logo img {
+            height: 40px !important;
+        }
+
+        nav {
+            position: fixed !important;
+            top: 0 !important;
+            right: -100% !important;
+            width: 80% !important;
+            max-width: 300px !important;
+            height: 100vh !important;
+            background: white !important;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+            transition: right 0.3s ease !important;
+            z-index: 1000 !important;
+            padding-top: 80px !important;
+            overflow-y: auto !important;
+        }
+
+        nav.active {
+            right: 0 !important;
+        }
+    }
+
+    /* Improve touch targets */
+    @media (max-width: 768px) {
+        button,
+        a.header-cta,
+        a.floating-cta,
+        .submit-btn,
+        nav a {
+            min-height: 44px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+
+    /* Fix footer on mobile */
+    @media (max-width: 768px) {
+        footer {
+            padding: 40px 15px 30px !important;
+        }
+
+        .footer-section h3 {
+            font-size: 22px !important;
+        }
+
+        .contact-item {
+            flex-direction: row !important;
+            justify-content: flex-start !important;
+            text-align: left !important;
+            padding: 0 10px !important;
+        }
+
+        .contact-item svg {
+            flex-shrink: 0 !important;
+        }
+    }
+
+    /* Very small devices final adjustments */
+    @media (max-width: 360px) {
+        .service-content h1 {
+            font-size: 24px !important;
+        }
+
+        .service-item h3 {
+            font-size: 16px !important;
+        }
+
+        .service-number {
+            width: 24px !important;
+            height: 24px !important;
+            font-size: 12px !important;
+        }
+    }
+
+</style>
 </head>
 <body>
-    <!-- Header - EXACTLY as in index.html -->
+    <!-- Header - EXACTLY as in index.html.html -->
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">
@@ -1111,11 +1918,10 @@
                     </div>
                 </div>
             </div>
-        </div>
         </section>
     </main>
 
-    <!-- Footer - EXACTLY as in index.html -->
+    <!-- Footer - EXACTLY as in index.html.html -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1158,33 +1964,112 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    window.location.href = 'index.html' + targetId;
-                }
-            });
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                window.location.href = 'index.html' + targetId;
+            }
         });
+    });
 
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const header = document.querySelector('header');
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        const header = document.querySelector('header');
 
-            if (currentScroll > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = 'var(--shadow-md)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'var(--shadow-sm)';
+        if (currentScroll > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = 'var(--shadow-md)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'var(--shadow-sm)';
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Mobile Menu Setup
+    function setupMobileMenu() {
+        // Create mobile menu button
+        const mobileMenuToggle = document.createElement('button');
+        mobileMenuToggle.className = 'mobile-menu-toggle';
+        mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+        mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+        // Create mobile overlay
+        const mobileOverlay = document.createElement('div');
+        mobileOverlay.className = 'mobile-overlay';
+
+        // Get header and nav elements
+        const headerContent = document.querySelector('.header-content');
+        const nav = document.querySelector('nav');
+
+        // Only add mobile elements if needed
+        if (headerContent && nav) {
+            // Add toggle button to header
+            headerContent.appendChild(mobileMenuToggle);
+            // Add overlay to body
+            document.body.appendChild(mobileOverlay);
+
+            // Toggle menu function
+            function toggleMenu() {
+                const isActive = nav.classList.contains('active');
+
+                if (isActive) {
+                    // Close menu
+                    mobileMenuToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else {
+                    // Open menu
+                    mobileMenuToggle.classList.add('active');
+                    nav.classList.add('active');
+                    mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }
 
-            lastScroll = currentScroll;
-        });
-    </script>
+            // Toggle menu when clicking button
+            mobileMenuToggle.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking overlay
+            mobileOverlay.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (nav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                }, 250);
+            });
+        }
+    }
+
+    // Initialize mobile menu when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupMobileMenu);
+    } else {
+        setupMobileMenu();
+    }
+</script>
+
 </body>
+
 </html>

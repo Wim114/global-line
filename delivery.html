@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global-Line - Logistic Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">    <title>Global-Line - Logistic Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -141,6 +140,82 @@
 
         .header-cta::after {
             display: none;
+        }
+
+                /* Mobile Animation Centering Fixes */
+        @media (max-width: 768px) {
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 120% !important; /* Adjust aspect ratio for mobile */
+                margin: 0 auto !important;
+            }
+
+            .animation-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                padding: 10px !important;
+                box-sizing: border-box !important;
+            }
+
+            .main-svg {
+                width: 90% !important;
+                height: auto !important;
+                max-width: 320px !important;
+                display: block !important;
+                margin: 0 auto !important;
+            }
+
+            /* Adjust SVG viewBox for better mobile display */
+            .main-svg {
+                viewBox: "50 50 400 500" !important;
+            }
+
+            /* Center the pen animation */
+            .pen {
+                display: non !important;
+            }
+
+            /* Ensure sheets are centered */
+            .sheet {
+                transform-origin: center !important;
+            }
+
+        }
+
+        /* Small devices specific centering */
+        @media (max-width: 480px) {
+            .service-image-wrapper {
+                padding-bottom: 140% !important; /* More square aspect for small screens */
+            }
+
+            .main-svg {
+                width: 85% !important;
+                max-width: 280px !important;
+            }
+            .pen {
+                display: none !important;
+            }
+        }
+
+        /* Fix service content spacing */
+        @media (max-width: 768px) {
+            .service-hero {
+                padding: 80px 15px 60px !important;
+            }
+
+            .service-container {
+                gap: 30px !important;
+            }
+
+            .service-content {
+                padding: 0 10px !important;
+            }
         }
 
         /* Floating CTA Button */
@@ -515,6 +590,473 @@
                 justify-content: center;
             }
         }
+
+
+        /* Enhanced Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Navigation Overlay */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-content {
+                position: relative;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: white;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 16px;
+                border-radius: var(--radius-sm);
+                transition: background-color 0.2s ease;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-light);
+            }
+
+            nav a::after {
+                display: none !important;
+            }
+
+            .header-cta {
+                margin-top: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+                display: block !important;
+            }
+
+            /* Mobile overlay backdrop */
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+
+            .mobile-overlay.active {
+                display: block;
+            }
+        }
+
+        /* Improved Mobile Typography */
+        @media (max-width: 480px) {
+            .about-section h1 {
+                font-size: 28px !important;
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+
+            .about-section p {
+                font-size: 16px !important;
+                padding: 0 10px;
+            }
+
+            .services-section h2 {
+                font-size: 28px !important;
+                margin-bottom: 30px;
+            }
+
+            .service-card h3 {
+                font-size: 20px !important;
+            }
+
+            .service-card p {
+                font-size: 14px !important;
+            }
+
+            .info-content h2 {
+                font-size: 28px !important;
+            }
+
+            .info-content p {
+                font-size: 16px !important;
+            }
+
+            .form-content h2 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .service-content h1 {
+                font-size: 28px !important;
+            }
+
+            .service-content .lead-text {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Mobile-Optimized Airplane Section */
+        @media (max-width: 768px) {
+            .airplane-section {
+                height: 300px !important;
+            }
+
+            .airplane-image {
+                width: 250px !important;
+                animation: none !important;
+                position: relative !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: 50% !important;
+                margin-top: -50px;
+            }
+
+            /* Reduce number of clouds on mobile */
+            .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
+            .cloud11, .cloud12, .cloud13, .cloud14 {
+                display: none !important;
+            }
+
+            .cloud {
+                animation-duration: 40s !important;
+            }
+        }
+
+        /* Mobile Timeline - Enhanced */
+        @media (max-width: 768px) {
+            .service-timeline {
+                padding: 40px 20px !important;
+            }
+
+            .timeline-container {
+                flex-direction: column !important;
+                gap: 30px;
+                position: relative;
+            }
+
+            .timeline-container::before {
+                content: '';
+                position: absolute;
+                left: 39px;
+                top: 30px;
+                bottom: 30px;
+                width: 2px;
+                background: var(--primary-color);
+                opacity: 0.2;
+                z-index: 0;
+            }
+
+            .timeline-item {
+                max-width: 100% !important;
+                padding: 20px !important;
+                background: white;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                position: relative;
+                margin-left: 20px;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none !important;
+            }
+
+            .timeline-item .number {
+                position: absolute;
+                left: -40px;
+                top: 20px;
+                z-index: 2;
+                background: white !important;
+            }
+        }
+
+        /* Mobile Service Cards */
+        @media (max-width: 480px) {
+            .service-cards {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .service-card {
+                padding: 30px 20px !important;
+            }
+        }
+
+        /* Mobile Registration Form */
+        @media (max-width: 768px) {
+            .registration-wrapper {
+                margin: 20px !important;
+                border-radius: var(--radius-md);
+            }
+
+            .registration-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .info-panel {
+                padding: 40px 20px !important;
+                min-height: auto;
+            }
+
+            .form-panel {
+                padding: 40px 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+
+            .submit-btn {
+                padding: 18px !important;
+                font-size: 16px !important;
+            }
+
+            .features-list li {
+                font-size: 15px !important;
+            }
+
+            .shape-1, .shape-2 {
+                display: none;
+            }
+        }
+
+        /* Mobile Floating CTA */
+        @media (max-width: 480px) {
+            .floating-cta {
+                bottom: 15px !important;
+                right: 15px !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+            }
+
+            .floating-cta svg {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        /* Mobile Footer */
+        @media (max-width: 768px) {
+            footer {
+                padding: 50px 20px 30px !important;
+            }
+
+            .footer-section h3 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .contact-item {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-info {
+                text-align: center !important;
+            }
+
+            .footer-bottom {
+                margin-top: 30px;
+                padding-top: 30px;
+                font-size: 14px !important;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (max-width: 768px) {
+            /* Larger touch targets */
+            button,
+            .header-cta,
+            .floating-cta,
+            .submit-btn,
+            nav a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Better spacing for form elements */
+            .form-group {
+                margin-bottom: 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px !important;
+                min-height: 44px;
+            }
+        }
+
+        /* Landscape mobile adjustments */
+        @media (max-width: 812px) and (orientation: landscape) {
+            .service-hero {
+                min-height: auto !important;
+                padding: 60px 20px 40px !important;
+            }
+
+            .airplane-section {
+                height: 250px !important;
+            }
+
+            .registration-wrapper {
+                min-height: auto !important;
+            }
+
+            main {
+                margin-top: 70px !important;
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .logo-text {
+                font-size: 24px !important;
+            }
+
+            .logo img {
+                height: 40px !important;
+            }
+
+            .about-section h1 {
+                font-size: 24px !important;
+            }
+
+            .service-content h1 {
+                font-size: 24px !important;
+            }
+
+            .floating-cta {
+                padding: 10px 16px !important;
+                font-size: 13px !important;
+            }
+        }
+
+        /* Service pages specific mobile styles */
+        @media (max-width: 768px) {
+            .service-container {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 100% !important;
+            }
+
+            .service-item h3 {
+                font-size: 18px !important;
+            }
+
+            .service-item-content {
+                margin-left: 0 !important;
+                margin-top: 10px;
+            }
+
+            .service-number {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 14px !important;
+            }
+
+            /* Three.js globe container for mobile */
+            .globe-container {
+                height: 300px !important;
+            }
+
+            .stats-row {
+                flex-wrap: wrap !important;
+                gap: 15px !important;
+            }
+
+            .stat-number {
+                font-size: 22px !important;
+            }
+
+            .stat-label {
+                font-size: 10px !important;
+            }
+        }
+
+
+    /* Very small devices final adjustments */
+    @media (max-width: 360px) {
+        .service-content h1 {
+            font-size: 24px !important;
+        }
+
+        .service-item h3 {
+            font-size: 16px !important;
+        }
+
+        .service-number {
+            width: 24px !important;
+            height: 24px !important;
+            font-size: 12px !important;
+        }
+    }
     </style>
 </head>
 <body>
@@ -819,132 +1361,317 @@
         });
 
         // Animation control
-        document.addEventListener('DOMContentLoaded', function() {
-            const sheets = document.querySelectorAll('.sheet');
-            const pen = document.querySelector('.pen');
-            let currentSheetIndex = 0;
+        // Animation control
+document.addEventListener('DOMContentLoaded', function() {
+    const sheets = document.querySelectorAll('.sheet');
+    const pen = document.querySelector('.pen');
+    let currentSheetIndex = 0;
 
-            // Pen positions for checkmarks
-            const penPositions = {
-                start: 'translate(230px, 180px) rotate(-90deg)',
-                check1: {
-                    move: 'translate(178px, 192px) rotate(-45deg)',
-                    draw1: 'translate(178px, 199px) rotate(-45deg)',
-                    draw2: 'translate(182px, 203px) rotate(-50deg)',
-                    draw3: 'translate(188px, 195px) rotate(-35deg)',
-                    end: 'translate(190px, 192px) rotate(-45deg)'
-                },
-                check2: {
-                    move: 'translate(178px, 252px) rotate(-45deg)',
-                    draw1: 'translate(178px, 259px) rotate(-45deg)',
-                    draw2: 'translate(182px, 263px) rotate(-50deg)',
-                    draw3: 'translate(188px, 255px) rotate(-35deg)',
-                    end: 'translate(190px, 252px) rotate(-45deg)'
-                },
-                check3: {
-                    move: 'translate(178px, 312px) rotate(-45deg)',
-                    draw1: 'translate(178px, 319px) rotate(-45deg)',
-                    draw2: 'translate(182px, 323px) rotate(-50deg)',
-                    draw3: 'translate(188px, 315px) rotate(-35deg)',
-                    end: 'translate(190px, 312px) rotate(-45deg)'
-                },
-                check4: {
-                    move: 'translate(178px, 372px) rotate(-45deg)',
-                    draw1: 'translate(178px, 379px) rotate(-45deg)',
-                    draw2: 'translate(182px, 383px) rotate(-50deg)',
-                    draw3: 'translate(188px, 375px) rotate(-35deg)',
-                    end: 'translate(190px, 372px) rotate(-45deg)'
-                },
-                away: 'translate(230px, 330px) rotate(-90deg)'
-            };
+    // Check if mobile
+    const isMobile = window.innerWidth <= 768;
 
-            function showSheet(index) {
-                sheets.forEach((sheet, i) => {
-                    if (i === index) {
-                        sheet.style.transition = 'all 0.8s ease-in-out';
-                        sheet.style.opacity = '1';
-                        sheet.style.transform = 'translateX(0)';
-                    } else {
-                        sheet.style.opacity = '0';
-                        sheet.style.transform = 'translateX(-400px)';
-                    }
-                });
-            }
+    // Pen positions for checkmarks (desktop only)
+    const penPositions = {
+        start: 'translate(230px, 180px) rotate(-90deg)',
+        check1: {
+            move: 'translate(178px, 192px) rotate(-45deg)',
+            draw1: 'translate(178px, 199px) rotate(-45deg)',
+            draw2: 'translate(182px, 203px) rotate(-50deg)',
+            draw3: 'translate(188px, 195px) rotate(-35deg)',
+            end: 'translate(190px, 192px) rotate(-45deg)'
+        },
+        check2: {
+            move: 'translate(178px, 252px) rotate(-45deg)',
+            draw1: 'translate(178px, 259px) rotate(-45deg)',
+            draw2: 'translate(182px, 263px) rotate(-50deg)',
+            draw3: 'translate(188px, 255px) rotate(-35deg)',
+            end: 'translate(190px, 252px) rotate(-45deg)'
+        },
+        check3: {
+            move: 'translate(178px, 312px) rotate(-45deg)',
+            draw1: 'translate(178px, 319px) rotate(-45deg)',
+            draw2: 'translate(182px, 323px) rotate(-50deg)',
+            draw3: 'translate(188px, 315px) rotate(-35deg)',
+            end: 'translate(190px, 312px) rotate(-45deg)'
+        },
+        check4: {
+            move: 'translate(178px, 372px) rotate(-45deg)',
+            draw1: 'translate(178px, 379px) rotate(-45deg)',
+            draw2: 'translate(182px, 383px) rotate(-50deg)',
+            draw3: 'translate(188px, 375px) rotate(-35deg)',
+            end: 'translate(190px, 372px) rotate(-45deg)'
+        },
+        away: 'translate(230px, 330px) rotate(-90deg)'
+    };
 
-            function hideSheet(index) {
-                const sheet = sheets[index];
+    function showSheet(index) {
+        sheets.forEach((sheet, i) => {
+            if (i === index) {
                 sheet.style.transition = 'all 0.8s ease-in-out';
-                sheet.style.transform = 'translateX(400px)';
-                setTimeout(() => {
-                    sheet.style.opacity = '0';
-                    sheet.style.transition = 'none';
-                    sheet.style.transform = 'translateX(-400px)';
-                    // Clear all checkmarks
-                    const inkTrails = sheet.querySelectorAll('.ink-trail');
-                    inkTrails.forEach(trail => {
-                        trail.style.opacity = '0';
-                    });
-                }, 800);
+                sheet.style.opacity = '1';
+                sheet.style.transform = 'translateX(0)';
+            } else {
+                sheet.style.opacity = '0';
+                sheet.style.transform = 'translateX(-400px)';
             }
+        });
+    }
 
-            function drawCheckmark(sheet, checkNumber, positions) {
-                const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
+    function hideSheet(index) {
+        const sheet = sheets[index];
+        sheet.style.transition = 'all 0.8s ease-in-out';
+        sheet.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            sheet.style.opacity = '0';
+            sheet.style.transition = 'none';
+            sheet.style.transform = 'translateX(-400px)';
+            // Clear all checkmarks
+            const inkTrails = sheet.querySelectorAll('.ink-trail');
+            inkTrails.forEach(trail => {
+                trail.style.opacity = '0';
+            });
+        }, 800);
+    }
 
-                // Move to checkbox
-                pen.style.transform = positions.move;
+    function drawCheckmark(sheet, checkNumber, positions) {
+        const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
 
+        if (!isMobile && pen) {
+            // Desktop: animate pen
+            pen.style.transform = positions.move;
+
+            setTimeout(() => {
+                pen.style.transform = positions.draw1;
                 setTimeout(() => {
-                    // Draw the checkmark
-                    pen.style.transform = positions.draw1;
+                    pen.style.transform = positions.draw2;
                     setTimeout(() => {
-                        pen.style.transform = positions.draw2;
+                        pen.style.transform = positions.draw3;
+                        // Show ink trail
+                        inkTrail.style.transition = 'opacity 0.3s';
+                        inkTrail.style.opacity = '1';
                         setTimeout(() => {
-                            pen.style.transform = positions.draw3;
-                            // Show ink trail
-                            inkTrail.style.transition = 'opacity 0.3s';
-                            inkTrail.style.opacity = '1';
-                            setTimeout(() => {
-                                pen.style.transform = positions.end;
-                            }, 100);
+                            pen.style.transform = positions.end;
                         }, 100);
                     }, 100);
-                }, 300);
+                }, 100);
+            }, 300);
+        } else {
+            // Mobile: just show ink trail without pen
+            setTimeout(() => {
+                inkTrail.style.transition = 'opacity 0.5s';
+                inkTrail.style.opacity = '1';
+            }, 300);
+        }
+    }
+
+    function runCycle() {
+        const currentSheet = sheets[currentSheetIndex];
+
+        // Show current sheet
+        showSheet(currentSheetIndex);
+
+        // Reset pen position (desktop only)
+        if (!isMobile && pen) {
+            pen.style.transform = penPositions.start;
+        }
+
+        // Draw checkmarks with timing (both desktop and mobile)
+        setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
+        setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
+        setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
+        setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
+
+        // Move pen away and slide sheet
+        setTimeout(() => {
+            if (!isMobile && pen) {
+                pen.style.transform = penPositions.away;
             }
+            setTimeout(() => {
+                hideSheet(currentSheetIndex);
+                if (!isMobile && pen) {
+                    pen.style.transform = penPositions.start;
+                }
 
-            function runCycle() {
-                const currentSheet = sheets[currentSheetIndex];
+                // Move to next sheet
+                currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
 
-                // Show current sheet
-                showSheet(currentSheetIndex);
+                // Start next cycle
+                setTimeout(runCycle, 1000);
+            }, 500);
+        }, 5000);
+    }
 
-                // Reset pen position
-                pen.style.transform = penPositions.start;
+    // Start animation
+    runCycle();
 
-                // Draw checkmarks with timing
-                setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
-                setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
-                setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
-                setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
-
-                // Move pen away and slide sheet
-                setTimeout(() => {
-                    pen.style.transform = penPositions.away;
-                    setTimeout(() => {
-                        hideSheet(currentSheetIndex);
-                        pen.style.transform = penPositions.start;
-
-                        // Move to next sheet
-                        currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
-
-                        // Start next cycle
-                        setTimeout(runCycle, 1000);
-                    }, 500);
-                }, 5000);
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Reload page on resize to recalculate positions
+            if ((window.innerWidth <= 768 && !isMobile) ||
+                (window.innerWidth > 768 && isMobile)) {
+                location.reload();
             }
+        }, 250);
+    });
+});// Animation control
+document.addEventListener('DOMContentLoaded', function() {
+    const sheets = document.querySelectorAll('.sheet');
+    const pen = document.querySelector('.pen');
+    let currentSheetIndex = 0;
 
-            // Start animation
-            runCycle();
+    // Check if mobile
+    const isMobile = window.innerWidth <= 768;
+
+    // Pen positions for checkmarks (desktop only)
+    const penPositions = {
+        start: 'translate(230px, 180px) rotate(-90deg)',
+        check1: {
+            move: 'translate(178px, 192px) rotate(-45deg)',
+            draw1: 'translate(178px, 199px) rotate(-45deg)',
+            draw2: 'translate(182px, 203px) rotate(-50deg)',
+            draw3: 'translate(188px, 195px) rotate(-35deg)',
+            end: 'translate(190px, 192px) rotate(-45deg)'
+        },
+        check2: {
+            move: 'translate(178px, 252px) rotate(-45deg)',
+            draw1: 'translate(178px, 259px) rotate(-45deg)',
+            draw2: 'translate(182px, 263px) rotate(-50deg)',
+            draw3: 'translate(188px, 255px) rotate(-35deg)',
+            end: 'translate(190px, 252px) rotate(-45deg)'
+        },
+        check3: {
+            move: 'translate(178px, 312px) rotate(-45deg)',
+            draw1: 'translate(178px, 319px) rotate(-45deg)',
+            draw2: 'translate(182px, 323px) rotate(-50deg)',
+            draw3: 'translate(188px, 315px) rotate(-35deg)',
+            end: 'translate(190px, 312px) rotate(-45deg)'
+        },
+        check4: {
+            move: 'translate(178px, 372px) rotate(-45deg)',
+            draw1: 'translate(178px, 379px) rotate(-45deg)',
+            draw2: 'translate(182px, 383px) rotate(-50deg)',
+            draw3: 'translate(188px, 375px) rotate(-35deg)',
+            end: 'translate(190px, 372px) rotate(-45deg)'
+        },
+        away: 'translate(230px, 330px) rotate(-90deg)'
+    };
+
+    function showSheet(index) {
+        sheets.forEach((sheet, i) => {
+            if (i === index) {
+                sheet.style.transition = 'all 0.8s ease-in-out';
+                sheet.style.opacity = '1';
+                sheet.style.transform = 'translateX(0)';
+            } else {
+                sheet.style.opacity = '0';
+                sheet.style.transform = 'translateX(-400px)';
+            }
         });
+    }
+
+    function hideSheet(index) {
+        const sheet = sheets[index];
+        sheet.style.transition = 'all 0.8s ease-in-out';
+        sheet.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            sheet.style.opacity = '0';
+            sheet.style.transition = 'none';
+            sheet.style.transform = 'translateX(-400px)';
+            // Clear all checkmarks
+            const inkTrails = sheet.querySelectorAll('.ink-trail');
+            inkTrails.forEach(trail => {
+                trail.style.opacity = '0';
+            });
+        }, 800);
+    }
+
+    function drawCheckmark(sheet, checkNumber, positions) {
+        const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
+
+        if (!isMobile && pen) {
+            // Desktop: animate pen
+            pen.style.transform = positions.move;
+
+            setTimeout(() => {
+                pen.style.transform = positions.draw1;
+                setTimeout(() => {
+                    pen.style.transform = positions.draw2;
+                    setTimeout(() => {
+                        pen.style.transform = positions.draw3;
+                        // Show ink trail
+                        inkTrail.style.transition = 'opacity 0.3s';
+                        inkTrail.style.opacity = '1';
+                        setTimeout(() => {
+                            pen.style.transform = positions.end;
+                        }, 100);
+                    }, 100);
+                }, 100);
+            }, 300);
+        } else {
+            // Mobile: just show ink trail without pen
+            setTimeout(() => {
+                inkTrail.style.transition = 'opacity 0.5s';
+                inkTrail.style.opacity = '1';
+            }, 300);
+        }
+    }
+
+    function runCycle() {
+        const currentSheet = sheets[currentSheetIndex];
+
+        // Show current sheet
+        showSheet(currentSheetIndex);
+
+        // Reset pen position (desktop only)
+        if (!isMobile && pen) {
+            pen.style.transform = penPositions.start;
+        }
+
+        // Draw checkmarks with timing (both desktop and mobile)
+        setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
+        setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
+        setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
+        setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
+
+        // Move pen away and slide sheet
+        setTimeout(() => {
+            if (!isMobile && pen) {
+                pen.style.transform = penPositions.away;
+            }
+            setTimeout(() => {
+                hideSheet(currentSheetIndex);
+                if (!isMobile && pen) {
+                    pen.style.transform = penPositions.start;
+                }
+
+                // Move to next sheet
+                currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
+
+                // Start next cycle
+                setTimeout(runCycle, 1000);
+            }, 500);
+        }, 5000);
+    }
+
+    // Start animation
+    runCycle();
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Reload page on resize to recalculate positions
+            if ((window.innerWidth <= 768 && !isMobile) ||
+                (window.innerWidth > 768 && isMobile)) {
+                location.reload();
+            }
+        }, 250);
+    });
+});
     </script>
 </body>
 </html>
@@ -955,75 +1682,112 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        <div class="contact-info">
-                            Via Coriano, 58 Blocco 92/G<br>
-                            Gros Rimini 47924 RIMINI
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <path d="M22 6l-10 7L2 6"/>
-                        </svg>
-                        <div class="contact-info">
-                            <a href="mailto:cargo@global-line.it">cargo@global-line.it</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-                            <path d="M12 8v8M8 12h8"/>
-                        </svg>
-                        <div class="contact-info">
-                            P.IVA 04736580400
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Global-Line. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    window.location.href = 'index.html' + targetId;
-                }
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        window.location.href = 'index.html' + targetId;
+                    }
+                });
             });
-        });
 
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const header = document.querySelector('header');
+            // Header scroll effect
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                const header = document.querySelector('header');
 
-            if (currentScroll > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = 'var(--shadow-md)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'var(--shadow-sm)';
+                if (currentScroll > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = 'var(--shadow-md)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'var(--shadow-sm)';
+                }
+
+                lastScroll = currentScroll;
+            });
+
+            // Mobile Menu Setup
+    function setupMobileMenu() {
+        // Create mobile menu button
+        const mobileMenuToggle = document.createElement('button');
+        mobileMenuToggle.className = 'mobile-menu-toggle';
+        mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+        mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+        // Create mobile overlay
+        const mobileOverlay = document.createElement('div');
+        mobileOverlay.className = 'mobile-overlay';
+
+        // Get header and nav elements
+        const headerContent = document.querySelector('.header-content');
+        const nav = document.querySelector('nav');
+
+        // Only add mobile elements if needed
+        if (headerContent && nav) {
+            // Add toggle button to header
+            headerContent.appendChild(mobileMenuToggle);
+            // Add overlay to body
+            document.body.appendChild(mobileOverlay);
+
+            // Toggle menu function
+            function toggleMenu() {
+                const isActive = nav.classList.contains('active');
+
+                if (isActive) {
+                    // Close menu
+                    mobileMenuToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else {
+                    // Open menu
+                    mobileMenuToggle.classList.add('active');
+                    nav.classList.add('active');
+                    mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }
 
-            lastScroll = currentScroll;
-        });
+            // Toggle menu when clicking button
+            mobileMenuToggle.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking overlay
+            mobileOverlay.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (nav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                }, 250);
+            });
+        }
+    }
+
+    // Initialize mobile menu when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupMobileMenu);
+    } else {
+        setupMobileMenu();
+    }
     </script>
 </body>
 </html>

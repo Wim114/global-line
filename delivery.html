@@ -1366,277 +1366,238 @@
 
         // Animation control
 
-document.addEventListener('DOMContentLoaded', function() {
-    const sheets = document.querySelectorAll('.sheet');
-    const pen = document.querySelector('.pen');
-    let currentSheetIndex = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        const sheets = document.querySelectorAll('.sheet');
+        const pen = document.querySelector('.pen');
+        let currentSheetIndex = 0;
 
-    // Check if mobile
-    const isMobile = window.innerWidth <= 768;
+        // Check if mobile
+        const isMobile = window.innerWidth <= 768;
 
-    // Pen positions for checkmarks (desktop only)
-    const penPositions = {
-        start: 'translate(230px, 180px) rotate(-90deg)',
-        check1: {
-            move: 'translate(178px, 192px) rotate(-45deg)',
-            draw1: 'translate(178px, 199px) rotate(-45deg)',
-            draw2: 'translate(182px, 203px) rotate(-50deg)',
-            draw3: 'translate(188px, 195px) rotate(-35deg)',
-            end: 'translate(190px, 192px) rotate(-45deg)'
-        },
-        check2: {
-            move: 'translate(178px, 252px) rotate(-45deg)',
-            draw1: 'translate(178px, 259px) rotate(-45deg)',
-            draw2: 'translate(182px, 263px) rotate(-50deg)',
-            draw3: 'translate(188px, 255px) rotate(-35deg)',
-            end: 'translate(190px, 252px) rotate(-45deg)'
-        },
-        check3: {
-            move: 'translate(178px, 312px) rotate(-45deg)',
-            draw1: 'translate(178px, 319px) rotate(-45deg)',
-            draw2: 'translate(182px, 323px) rotate(-50deg)',
-            draw3: 'translate(188px, 315px) rotate(-35deg)',
-            end: 'translate(190px, 312px) rotate(-45deg)'
-        },
-        check4: {
-            move: 'translate(178px, 372px) rotate(-45deg)',
-            draw1: 'translate(178px, 379px) rotate(-45deg)',
-            draw2: 'translate(182px, 383px) rotate(-50deg)',
-            draw3: 'translate(188px, 375px) rotate(-35deg)',
-            end: 'translate(190px, 372px) rotate(-45deg)'
-        },
-        away: 'translate(230px, 330px) rotate(-90deg)'
-    };
+        // Pen positions for checkmarks (desktop only)
+        const penPositions = {
+            start: 'translate(230px, 180px) rotate(-90deg)',
+            check1: {
+                move: 'translate(178px, 192px) rotate(-45deg)',
+                draw1: 'translate(178px, 199px) rotate(-45deg)',
+                draw2: 'translate(182px, 203px) rotate(-50deg)',
+                draw3: 'translate(188px, 195px) rotate(-35deg)',
+                end: 'translate(190px, 192px) rotate(-45deg)'
+            },
+            check2: {
+                move: 'translate(178px, 252px) rotate(-45deg)',
+                draw1: 'translate(178px, 259px) rotate(-45deg)',
+                draw2: 'translate(182px, 263px) rotate(-50deg)',
+                draw3: 'translate(188px, 255px) rotate(-35deg)',
+                end: 'translate(190px, 252px) rotate(-45deg)'
+            },
+            check3: {
+                move: 'translate(178px, 312px) rotate(-45deg)',
+                draw1: 'translate(178px, 319px) rotate(-45deg)',
+                draw2: 'translate(182px, 323px) rotate(-50deg)',
+                draw3: 'translate(188px, 315px) rotate(-35deg)',
+                end: 'translate(190px, 312px) rotate(-45deg)'
+            },
+            check4: {
+                move: 'translate(178px, 372px) rotate(-45deg)',
+                draw1: 'translate(178px, 379px) rotate(-45deg)',
+                draw2: 'translate(182px, 383px) rotate(-50deg)',
+                draw3: 'translate(188px, 375px) rotate(-35deg)',
+                end: 'translate(190px, 372px) rotate(-45deg)'
+            },
+            away: 'translate(230px, 330px) rotate(-90deg)'
+        };
 
-    function showSheet(index) {
-        sheets.forEach((sheet, i) => {
-            if (i === index) {
-                sheet.style.transition = 'all 0.8s ease-in-out';
-                sheet.style.opacity = '1';
-                sheet.style.transform = 'translateX(0)';
-            } else {
-                sheet.style.opacity = '0';
-                sheet.style.transform = 'translateX(-400px)';
-            }
-        });
-    }
-
-    function hideSheet(index) {
-        const sheet = sheets[index];
-        sheet.style.transition = 'all 0.8s ease-in-out';
-        sheet.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            sheet.style.opacity = '0';
-            sheet.style.transition = 'none';
-            sheet.style.transform = 'translateX(-400px)';
-            // Clear all checkmarks
-            const inkTrails = sheet.querySelectorAll('.ink-trail');
-            inkTrails.forEach(trail => {
-                trail.style.opacity = '0';
+        function showSheet(index) {
+            sheets.forEach((sheet, i) => {
+                if (i === index) {
+                    sheet.style.transition = 'all 0.8s ease-in-out';
+                    sheet.style.opacity = '1';
+                    sheet.style.transform = 'translateX(0)';
+                } else {
+                    sheet.style.opacity = '0';
+                    sheet.style.transform = 'translateX(-400px)';
+                }
             });
-        }, 800);
-    }
+        }
 
-    function drawCheckmark(sheet, checkNumber, positions) {
-        const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
-
-        if (!isMobile && pen) {
-            // Desktop: animate pen
-            pen.style.transform = positions.move;
-
+        function hideSheet(index) {
+            const sheet = sheets[index];
+            sheet.style.transition = 'all 0.8s ease-in-out';
+            sheet.style.transform = 'translateX(400px)';
             setTimeout(() => {
-                pen.style.transform = positions.draw1;
+                sheet.style.opacity = '0';
+                sheet.style.transition = 'none';
+                sheet.style.transform = 'translateX(-400px)';
+                // Clear all checkmarks
+                const inkTrails = sheet.querySelectorAll('.ink-trail');
+                inkTrails.forEach(trail => {
+                    trail.style.opacity = '0';
+                });
+            }, 800);
+        }
+
+        function drawCheckmark(sheet, checkNumber, positions) {
+            const inkTrail = sheet.querySelector(`.ink-${checkNumber}`);
+
+            if (!isMobile && pen) {
+                // Desktop: animate pen
+                pen.style.transform = positions.move;
+
                 setTimeout(() => {
-                    pen.style.transform = positions.draw2;
+                    pen.style.transform = positions.draw1;
                     setTimeout(() => {
-                        pen.style.transform = positions.draw3;
-                        // Show ink trail
-                        inkTrail.style.transition = 'opacity 0.3s';
-                        inkTrail.style.opacity = '1';
+                        pen.style.transform = positions.draw2;
                         setTimeout(() => {
-                            pen.style.transform = positions.end;
+                            pen.style.transform = positions.draw3;
+                            // Show ink trail
+                            inkTrail.style.transition = 'opacity 0.3s';
+                            inkTrail.style.opacity = '1';
+                            setTimeout(() => {
+                                pen.style.transform = positions.end;
+                            }, 100);
                         }, 100);
                     }, 100);
-                }, 100);
-            }, 300);
-        } else {
-            // Mobile: just show ink trail without pen
-            setTimeout(() => {
-                inkTrail.style.transition = 'opacity 0.5s';
-                inkTrail.style.opacity = '1';
-            }, 300);
-        }
-    }
-
-    function runCycle() {
-        const currentSheet = sheets[currentSheetIndex];
-
-        // Show current sheet
-        showSheet(currentSheetIndex);
-
-        // Reset pen position (desktop only)
-        if (!isMobile && pen) {
-            pen.style.transform = penPositions.start;
+                }, 300);
+            } else {
+                // Mobile: just show ink trail without pen
+                setTimeout(() => {
+                    inkTrail.style.transition = 'opacity 0.5s';
+                    inkTrail.style.opacity = '1';
+                }, 300);
+            }
         }
 
-        // Draw checkmarks with timing (both desktop and mobile)
-        setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
-        setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
-        setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
-        setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
+        function runCycle() {
+            const currentSheet = sheets[currentSheetIndex];
 
-        // Move pen away and slide sheet
-        setTimeout(() => {
+            // Show current sheet
+            showSheet(currentSheetIndex);
+
+            // Reset pen position (desktop only)
             if (!isMobile && pen) {
-                pen.style.transform = penPositions.away;
+                pen.style.transform = penPositions.start;
             }
+
+            // Draw checkmarks with timing (both desktop and mobile)
+            setTimeout(() => drawCheckmark(currentSheet, 1, penPositions.check1), 1000);
+            setTimeout(() => drawCheckmark(currentSheet, 2, penPositions.check2), 2000);
+            setTimeout(() => drawCheckmark(currentSheet, 3, penPositions.check3), 3000);
+            setTimeout(() => drawCheckmark(currentSheet, 4, penPositions.check4), 4000);
+
+            // Move pen away and slide sheet
             setTimeout(() => {
-                hideSheet(currentSheetIndex);
                 if (!isMobile && pen) {
-                    pen.style.transform = penPositions.start;
+                    pen.style.transform = penPositions.away;
                 }
-
-                // Move to next sheet
-                currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
-
-                // Start next cycle
-                setTimeout(runCycle, 1000);
-            }, 500);
-        }, 5000);
-    }
-
-    // Start animation
-    runCycle();
-
-    // Handle window resize
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            // Reload page on resize to recalculate positions
-            if ((window.innerWidth <= 768 && !isMobile) ||
-                (window.innerWidth > 768 && isMobile)) {
-                location.reload();
-            }
-        }, 250);
-    });
-});
-    </script>
-</body>
-</html>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-
-    <script>
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId.startsWith('#')) {
-                        window.location.href = 'index.html' + targetId;
+                setTimeout(() => {
+                    hideSheet(currentSheetIndex);
+                    if (!isMobile && pen) {
+                        pen.style.transform = penPositions.start;
                     }
-                });
-            });
 
-            // Header scroll effect
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                const header = document.querySelector('header');
+                    // Move to next sheet
+                    currentSheetIndex = (currentSheetIndex + 1) % sheets.length;
 
-                if (currentScroll > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = 'var(--shadow-md)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'var(--shadow-sm)';
-                }
-
-                lastScroll = currentScroll;
-            });
-
-            // Mobile Menu Setup
-    function setupMobileMenu() {
-        // Create mobile menu button
-        const mobileMenuToggle = document.createElement('button');
-        mobileMenuToggle.className = 'mobile-menu-toggle';
-        mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
-        mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
-
-        // Create mobile overlay
-        const mobileOverlay = document.createElement('div');
-        mobileOverlay.className = 'mobile-overlay';
-
-        // Get header and nav elements
-        const headerContent = document.querySelector('.header-content');
-        const nav = document.querySelector('nav');
-
-        // Only add mobile elements if needed
-        if (headerContent && nav) {
-            // Add toggle button to header
-            headerContent.appendChild(mobileMenuToggle);
-            // Add overlay to body
-            document.body.appendChild(mobileOverlay);
-
-            // Toggle menu function
-            function toggleMenu() {
-                const isActive = nav.classList.contains('active');
-
-                if (isActive) {
-                    // Close menu
-                    mobileMenuToggle.classList.remove('active');
-                    nav.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                } else {
-                    // Open menu
-                    mobileMenuToggle.classList.add('active');
-                    nav.classList.add('active');
-                    mobileOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            // Toggle menu when clicking button
-            mobileMenuToggle.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking overlay
-            mobileOverlay.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking a nav link
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (nav.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Handle window resize
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    if (window.innerWidth > 768 && nav.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                }, 250);
-            });
+                    // Start next cycle
+                    setTimeout(runCycle, 1000);
+                }, 500);
+            }, 5000);
         }
-    }
 
-    // Initialize mobile menu when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMobileMenu);
-    } else {
-        setupMobileMenu();
-    }
+        // Start animation
+        runCycle();
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Reload page on resize to recalculate positions
+                if ((window.innerWidth <= 768 && !isMobile) ||
+                    (window.innerWidth > 768 && isMobile)) {
+                    location.reload();
+                }
+            }, 250);
+        });
+    });
+
+        function setupMobileMenu() {
+            // Create mobile menu button
+            const mobileMenuToggle = document.createElement('button');
+            mobileMenuToggle.className = 'mobile-menu-toggle';
+            mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+            mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+            // Create mobile overlay
+            const mobileOverlay = document.createElement('div');
+            mobileOverlay.className = 'mobile-overlay';
+
+            // Get header and nav elements
+            const headerContent = document.querySelector('.header-content');
+            const nav = document.querySelector('nav');
+
+            // Only add mobile elements if needed
+            if (headerContent && nav) {
+                // Add toggle button to header
+                headerContent.appendChild(mobileMenuToggle);
+                // Add overlay to body
+                document.body.appendChild(mobileOverlay);
+
+                // Toggle menu function
+                function toggleMenu() {
+                    const isActive = nav.classList.contains('active');
+
+                    if (isActive) {
+                        // Close menu
+                        mobileMenuToggle.classList.remove('active');
+                        nav.classList.remove('active');
+                        mobileOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    } else {
+                        // Open menu
+                        mobileMenuToggle.classList.add('active');
+                        nav.classList.add('active');
+                        mobileOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+
+                // Toggle menu when clicking button
+                mobileMenuToggle.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking overlay
+                mobileOverlay.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking a nav link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (nav.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+
+                // Handle window resize
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function() {
+                        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    }, 250);
+                });
+            }
+        }
+
+        // Initialize mobile menu when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupMobileMenu);
+        } else {
+            setupMobileMenu();
+        }
+
     </script>
 </body>
 </html>

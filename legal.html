@@ -531,10 +531,15 @@
             });
 
             // Show selected section
-            document.getElementById(sectionName + '-section').classList.add('active');
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
 
             // Add active class to clicked button
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
         }
 
         // Handle URL hash navigation

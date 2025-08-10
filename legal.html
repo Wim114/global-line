@@ -525,6 +525,111 @@
                 font-size: 24px;
             }
         }
+
+        /* Compact Mobile Header */
+        @media (max-width: 768px) {
+            header {
+                padding: 0;
+            }
+
+            .header-content {
+                padding: 10px 15px;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+            }
+
+            .logo {
+                gap: 8px;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            /* Adjust main content margin for smaller header */
+            main {
+                margin-top: 60px;
+                padding: 20px 10px 60px;
+            }
+
+            .mobile-menu-toggle {
+                padding: 8px;
+                right: 15px;
+            }
+
+            .mobile-menu-toggle span {
+                width: 22px;
+                height: 2.5px;
+                margin: 4px 0;
+            }
+
+            /* Adjust nav padding for smaller header */
+            nav {
+                padding-top: 60px;
+            }
+        }
+
+        /* Even smaller header for very small devices */
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 8px 12px;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+                letter-spacing: -0.3px;
+            }
+
+            main {
+                margin-top: 55px;
+            }
+
+            .mobile-menu-toggle {
+                padding: 6px;
+                right: 12px;
+            }
+
+            .mobile-menu-toggle span {
+                width: 20px;
+                height: 2px;
+                margin: 3.5px 0;
+            }
+
+            nav {
+                padding-top: 55px;
+            }
+        }
+
+        /* For very small devices in landscape */
+        @media (max-width: 812px) and (orientation: landscape) {
+            .header-content {
+                padding: 6px 12px;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            main {
+                margin-top: 50px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -816,33 +921,33 @@
                 showSection(hash);
             }
         });
-        
+
         function setupMobileMenu() {
             // Create mobile menu button
             const mobileMenuToggle = document.createElement('button');
             mobileMenuToggle.className = 'mobile-menu-toggle';
             mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
             mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
-        
+
             // Create mobile overlay
             const mobileOverlay = document.createElement('div');
             mobileOverlay.className = 'mobile-overlay';
-        
+
             // Get header and nav elements
             const headerContent = document.querySelector('.header-content');
             const nav = document.querySelector('nav');
-        
+
             // Only add mobile elements if needed
             if (headerContent && nav) {
                 // Add toggle button to header
                 headerContent.appendChild(mobileMenuToggle);
                 // Add overlay to body
                 document.body.appendChild(mobileOverlay);
-        
+
                 // Toggle menu function
                 function toggleMenu() {
                     const isActive = nav.classList.contains('active');
-        
+
                     if (isActive) {
                         // Close menu
                         mobileMenuToggle.classList.remove('active');
@@ -857,13 +962,13 @@
                         document.body.style.overflow = 'hidden';
                     }
                 }
-        
+
                 // Toggle menu when clicking button
                 mobileMenuToggle.addEventListener('click', toggleMenu);
-        
+
                 // Close menu when clicking overlay
                 mobileOverlay.addEventListener('click', toggleMenu);
-        
+
                 // Close menu when clicking a nav link
                 document.querySelectorAll('nav a').forEach(link => {
                     link.addEventListener('click', function() {
@@ -872,7 +977,7 @@
                         }
                     });
                 });
-        
+
                 // Handle window resize
                 let resizeTimer;
                 window.addEventListener('resize', function() {
@@ -885,21 +990,21 @@
                 });
             }
         }
-        
+
         // Initialize mobile menu when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', setupMobileMenu);
         } else {
             setupMobileMenu();
         }
-        
+
         // Make section buttons work better on mobile
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const sectionName = this.getAttribute('href').substring(1);
                 showSection(sectionName);
-                
+
                 // Scroll to top of section on mobile
                 if (window.innerWidth <= 768) {
                     window.scrollTo({
@@ -909,7 +1014,7 @@
                 }
             });
         });
-        
+
     </script>
 </body>
 </html>

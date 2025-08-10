@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global-Line - Legal Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --primary-dark: #0f3c4f;
+            --primary-light: #2a7f9a;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 15px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-cta {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 90px;
+            padding: 40px 20px 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .legal-nav {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .legal-nav h1 {
+            color: var(--primary-color);
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .legal-nav .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .legal-section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+        }
+
+        .legal-section.active {
+            display: block;
+        }
+
+        .legal-section h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .legal-section h3 {
+            color: var(--primary-dark);
+            font-size: 20px;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .legal-section p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .legal-section ul {
+            margin: 15px 0 15px 20px;
+            color: var(--text-gray);
+        }
+
+        .legal-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .contact-info {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            main {
+                margin-top: 140px;
+                padding: 20px 15px;
+            }
+
+            .legal-nav .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 200px;
+            }
+
+            .legal-section {
+                padding: 25px 20px;
+            }
+
+            .legal-nav h1 {
+                font-size: 28px;
+            }
+
+            .legal-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Global-Line Logo">
+                <span class="logo-text">Global-Line</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="legal.html">Legal</a></li>
+                    <li><a href="index.html#request" class="header-cta">Request Free Consultation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-nav">
+            <h1>Legal Information</h1>
+            <div class="nav-buttons">
+                <a href="#privacy" class="nav-btn active" onclick="showSection('privacy')">Privacy Policy</a>
+                <a href="#terms" class="nav-btn" onclick="showSection('terms')">Terms of Service</a>
+                <a href="#cookies" class="nav-btn" onclick="showSection('cookies')">Cookie Policy</a>
+                <a href="#gdpr" class="nav-btn" onclick="showSection('gdpr')">Data Protection</a>
+            </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <section id="privacy-section" class="legal-section active">
+            <h2>Privacy Policy</h2>
+            <p><strong>Last updated:</strong> January 2025</p>
+
+            <h3>1. Introduction</h3>
+            <p>Global-Line SRL ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and protect your information when you visit our website or use our services.</p>
+
+            <h3>2. Information We Collect</h3>
+            <p>We collect information you provide directly to us, such as:</p>
+            <ul>
+                <li><strong>Contact Information:</strong> Name, email address, phone number, company name</li>
+                <li><strong>Service Information:</strong> Details about your logistics and shipping requirements</li>
+                <li><strong>Communication Data:</strong> Messages sent through our contact forms or direct communication</li>
+                <li><strong>Technical Data:</strong> IP address, browser type, device information, website usage data</li>
+            </ul>
+
+            <h3>3. How We Use Your Information</h3>
+            <p>We use your personal data to:</p>
+            <ul>
+                <li>Provide and improve our logistics services</li>
+                <li>Respond to your inquiries and requests</li>
+                <li>Send you service-related communications</li>
+                <li>Comply with legal obligations</li>
+                <li>Analyze website usage to improve user experience</li>
+            </ul>
+
+            <h3>4. Legal Basis for Processing</h3>
+            <p>We process your personal data based on:</p>
+            <ul>
+                <li><strong>Consent:</strong> When you provide consent for specific processing activities</li>
+                <li><strong>Contract:</strong> To perform services you've requested</li>
+                <li><strong>Legitimate Interest:</strong> To improve our services and communicate with potential clients</li>
+                <li><strong>Legal Obligation:</strong> To comply with applicable laws and regulations</li>
+            </ul>
+
+            <h3>5. Data Sharing and Disclosure</h3>
+            <p>We may share your information with:</p>
+            <ul>
+                <li>Service providers who assist in our operations (under strict confidentiality agreements)</li>
+                <li>Legal authorities when required by law</li>
+                <li>Business partners for service delivery (with your consent)</li>
+            </ul>
+            <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+
+            <h3>6. Data Security</h3>
+            <p>We implement appropriate technical and organizational security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+
+            <h3>7. Your Rights</h3>
+            <p>Under GDPR and other applicable laws, you have the right to:</p>
+            <ul>
+                <li>Access your personal data</li>
+                <li>Rectify inaccurate data</li>
+                <li>Erase your data ("right to be forgotten")</li>
+                <li>Restrict processing</li>
+                <li>Data portability</li>
+                <li>Object to processing</li>
+                <li>Withdraw consent at any time</li>
+            </ul>
+
+            <h3>8. Data Retention</h3>
+            <p>We retain your personal data only as long as necessary for the purposes outlined in this policy or as required by law. Typically, we retain contact information for 3 years after our last interaction.</p>
+
+            <div class="contact-info">
+                <h3>9. Contact Information</h3>
+                <p><strong>Data Controller:</strong> Global-Line SRL</p>
+                <p><strong>Address:</strong> Via Coriano, 58 Blocco 92/G, Gros Rimini 47924 RIMINI, Italy</p>
+                <p><strong>Email:</strong> cargo@global-line.it</p>
+                <p><strong>P.IVA:</strong> 04736580400</p>
+                <p>For any privacy-related questions or to exercise your rights, please contact us using the information above.</p>
+            </div>
+        </section>
+
+        <!-- Terms of Service -->
+        <section id="terms-section" class="legal-section">
+            <h2>Terms of Service</h2>
+            <p><strong>Last updated:</strong> January 2025</p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By accessing and using the Global-Line SRL website and services, you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+
+            <h3>2. Services Description</h3>
+            <p>Global-Line SRL provides international logistics and shipping services, including:</p>
+            <ul>
+                <li>Air freight transportation</li>
+                <li>Customs clearance and documentation</li>
+                <li>Sourcing and manufacturing coordination</li>
+                <li>Last-mile delivery services</li>
+                <li>Supply chain consulting</li>
+            </ul>
+
+            <h3>3. Use of Website</h3>
+            <p>You agree to use our website only for lawful purposes and in accordance with these terms. You must not:</p>
+            <ul>
+                <li>Use the website in any way that violates laws or regulations</li>
+                <li>Transmit any harmful, offensive, or inappropriate content</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Interfere with the proper functioning of the website</li>
+            </ul>
+
+            <h3>4. Service Agreements</h3>
+            <p>Specific logistics services are subject to separate service agreements that will include:</p>
+            <ul>
+                <li>Detailed scope of work</li>
+                <li>Pricing and payment terms</li>
+                <li>Delivery timelines and responsibilities</li>
+                <li>Insurance and liability provisions</li>
+            </ul>
+
+            <h3>5. Limitation of Liability</h3>
+            <p>To the fullest extent permitted by law, Global-Line SRL shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or services.</p>
+
+            <h3>6. Intellectual Property</h3>
+            <p>All content on this website, including text, graphics, logos, and software, is the property of Global-Line SRL and is protected by intellectual property laws.</p>
+
+            <h3>7. Modifications</h3>
+            <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on our website.</p>
+
+            <div class="highlight">
+                <p><strong>Important:</strong> These terms are governed by Italian law. Any disputes will be subject to the jurisdiction of Italian courts.</p>
+            </div>
+        </section>
+
+        <!-- Cookie Policy -->
+        <section id="cookies-section" class="legal-section">
+            <h2>Cookie Policy</h2>
+            <p><strong>Last updated:</strong> January 2025</p>
+
+            <h3>1. What Are Cookies</h3>
+            <p>Cookies are small text files stored on your device when you visit our website. They help us understand how you use our site and improve your experience.</p>
+
+            <h3>2. Types of Cookies We Use</h3>
+
+            <h4>Essential Cookies</h4>
+            <p>These cookies are necessary for the website to function properly:</p>
+            <ul>
+                <li>Session management cookies</li>
+                <li>Security cookies</li>
+                <li>Load balancing cookies</li>
+            </ul>
+
+            <h4>Functional Cookies</h4>
+            <p>These cookies enhance your experience:</p>
+            <ul>
+                <li>Language preference cookies</li>
+                <li>Form data retention cookies</li>
+                <li>User interface customization cookies</li>
+            </ul>
+
+            <h4>Analytics Cookies</h4>
+            <p>We may use analytics cookies to understand website usage:</p>
+            <ul>
+                <li>Page view tracking</li>
+                <li>User journey analysis</li>
+                <li>Performance monitoring</li>
+            </ul>
+
+            <h3>3. Managing Cookies</h3>
+            <p>You can control cookies through your browser settings:</p>
+            <ul>
+                <li><strong>Accept all cookies:</strong> Standard setting for full functionality</li>
+                <li><strong>Block all cookies:</strong> May limit website functionality</li>
+                <li><strong>Selective blocking:</strong> Choose which types to allow</li>
+            </ul>
+
+            <h3>4. Third-Party Cookies</h3>
+            <p>Our website may include content from third parties that may set their own cookies. We do not control these cookies and recommend reviewing their privacy policies.</p>
+
+            <div class="highlight">
+                <p><strong>Note:</strong> Blocking certain cookies may affect your ability to use some features of our website.</p>
+            </div>
+        </section>
+
+        <!-- GDPR/Data Protection -->
+        <section id="gdpr-section" class="legal-section">
+            <h2>Data Protection & GDPR Compliance</h2>
+            <p><strong>Last updated:</strong> January 2025</p>
+
+            <h3>1. GDPR Compliance</h3>
+            <p>Global-Line SRL is committed to full compliance with the General Data Protection Regulation (GDPR) and other applicable data protection laws.</p>
+
+            <h3>2. Data Subject Rights</h3>
+            <p>As a data subject, you have the following rights:</p>
+
+            <h4>Right of Access (Article 15)</h4>
+            <p>You can request information about what personal data we process and receive a copy of that data.</p>
+
+            <h4>Right to Rectification (Article 16)</h4>
+            <p>You can request correction of inaccurate or incomplete personal data.</p>
+
+            <h4>Right to Erasure (Article 17)</h4>
+            <p>You can request deletion of your personal data under certain circumstances.</p>
+
+            <h4>Right to Restrict Processing (Article 18)</h4>
+            <p>You can request limitation of processing under specific conditions.</p>
+
+            <h4>Right to Data Portability (Article 20)</h4>
+            <p>You can request your data in a structured, machine-readable format.</p>
+
+            <h4>Right to Object (Article 21)</h4>
+            <p>You can object to processing based on legitimate interests or for direct marketing.</p>
+
+            <h3>3. Exercising Your Rights</h3>
+            <p>To exercise any of these rights, please contact us at:</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> cargo@global-line.it</p>
+                <p><strong>Subject Line:</strong> "Data Protection Request"</p>
+                <p><strong>Include:</strong> Your full name, contact information, and specific request</p>
+            </div>
+
+            <h3>4. Response Timeline</h3>
+            <p>We will respond to your request within one month of receipt. In complex cases, this may be extended to two months with notification.</p>
+
+            <h3>5. Data Breach Notification</h3>
+            <p>In the event of a data breach, we will notify relevant authorities within 72 hours and affected individuals without undue delay if there is a high risk to their rights and freedoms.</p>
+
+            <h3>6. Supervisory Authority</h3>
+            <p>You have the right to lodge a complaint with your local data protection supervisory authority if you believe we have not handled your data in accordance with the law.</p>
+
+            <div class="highlight">
+                <p><strong>Contact our Data Protection Officer:</strong> For complex data protection matters, you may request to speak with our designated data protection contact at cargo@global-line.it</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Global-Line SRL. All rights reserved. | <a href="legal.html" style="color: white;">Legal Information</a></p>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.legal-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Handle URL hash navigation
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash + '-section')) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
